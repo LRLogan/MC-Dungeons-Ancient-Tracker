@@ -10,7 +10,7 @@ namespace DungeonsAncientTracker
     {
         public List<Rune> runesRequired;
         public List<Item> itemDrops;
-        public string name, type;
+        public string name, type;   // Type just refers to the type of mob it is
         public static Dictionary<string, Ancient> allAncients = new();
 
         public Ancient(string name, string type)

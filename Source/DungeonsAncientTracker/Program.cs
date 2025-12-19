@@ -20,6 +20,13 @@ namespace DungeonsAncientTracker
         Totem
     }
 
+    public enum ItemType
+    {
+        Melee,
+        Ranged,
+        Armor,
+        Artifact
+    }
 
     internal class Program
     {
