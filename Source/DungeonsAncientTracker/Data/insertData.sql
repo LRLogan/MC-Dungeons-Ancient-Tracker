@@ -466,4 +466,111 @@ INSERT INTO AncientRune (ancientName, runeName, runeQuantity) VALUES
 ('Watcher of the End', 'Anchor', 1);
 
 INSERT INTO AncientLoot (ancientName, itemName) VALUES
-('', '');
+('Abominable Weaver', 'Double Axe'),
+('Abominable Weaver', 'Wolf Armor'),
+('Abominable Weaver', 'Battle Robe'),
+('Abominable Weaver', 'Trickbow'),
+
+('Ancient Terror', 'Exploding Crossbow'),
+('Ancient Terror', 'Mystery Armor'),
+('Ancient Terror', 'Champions Armor'),
+
+('Barrage', 'Bow'),
+('Barrage', 'Soul Bow'),
+('Barrage', 'Hunters Armor'),
+
+('Cursed Presence', 'Phantom Armor'),
+('Cursed Presence', 'Soul Crossbow'),
+('Cursed Presence', 'Cutlass'),
+
+('First Enchanter', 'Scale Mail'),
+('First Enchanter', 'Claymore'),
+('First Enchanter', 'Soul Scythe'),
+
+('Grim Guardian', 'Sword'),
+('Grim Guardian', 'Grim Armor'),
+('Grim Guardian', 'Dark Armor'),
+
+('Haunted Caller', 'Longbow'),
+('Haunted Caller', 'Rapid Crossbow'),
+('Haunted Caller', 'Sickles'),
+('Haunted Caller', 'Spelunker Armor'),
+
+('Mooshroom Ancient', 'Katana'),
+('Mooshroom Ancient', 'Ghostly Armor'),
+('Mooshroom Ancient', 'Dual Crossbows'),
+('Mooshroom Ancient', 'Gauntlets'),
+
+('Oozing menace', 'Battlestaff'),
+('Oozing menace', 'Shortbow'),
+('Oozing menace', 'Mercenary Armor'),
+
+('Pestilent Conjurer', 'Spear'),
+('Pestilent Conjurer', 'Glaive'),
+('Pestilent Conjurer', 'Heavy Crossbow'),
+('Pestilent Conjurer', 'Scatter Crossbow'),
+
+('Solemn Giant', 'Burst Crossbow'),
+('Solemn Giant', 'Rapier'),
+('Solemn Giant', 'Guards Armor'),
+
+('The Seeking Flame', 'Axe'),
+('The Seeking Flame', 'Soul Knife'),
+('The Seeking Flame', 'Evocation Robe'),
+
+('The Tiny Scourge', 'Daggers'),
+('The Tiny Scourge', 'Soul Robe'),
+('The Tiny Scourge', 'Thief Armor'),
+
+('The Tower', 'Hunting Bow'),
+('The Tower', 'Beenest Armor'),
+('The Tower', 'Pickaxe'),
+
+('Unbreakable One', 'Great Hammer'),
+('Unbreakable One', 'Claymore'),
+('Unbreakable One', 'Power Bow'),
+('Unbreakable One', 'Full Metal Armor'),
+
+('Vigilant Scoundrel', 'Crossbow'),
+('Vigilant Scoundrel', 'Mace'),
+('Vigilant Scoundrel', 'Reinforced Mail'),
+
+('Thundering Growth', 'Ocelot Armor'),
+('Thundering Growth', 'Whip'),
+('Thundering Growth', 'Root Rot Armor'),
+
+('Frost Warden', 'Snow Armor'),
+('Frost Warden', 'Snow Bow'),
+
+('Windbeard', 'Tempest Knife'),
+('Windbeard', 'Wind Bow'),
+('Windbeard', 'Climbing Gear'),
+('Windbeard', 'Emerald Gear'),
+
+('The Unending', 'Twisting Vine Bow'),
+('The Unending', 'Boneclub'),
+('The Unending', 'Piglin Armor'),
+
+('Unstoppable Tusk', 'Broken Sawblade'),
+('Unstoppable Tusk', 'Cog Crossbow'),
+('Unstoppable Tusk', 'Sprout Armor'),
+
+('Abyssal Eye', 'Squid Armor'),
+('Abyssal Eye', 'Coral Blade'),
+('Abyssal Eye', 'Harpoon Crossbow'),
+
+('Vengeful Mariner', 'Anchor'),
+('Vengeful Mariner', 'Turtle Armor'),
+('Vengeful Mariner', 'Bubble Bow'),
+
+('Scuttling Torment', 'Void Bow'),
+('Scuttling Torment', 'Obsidian Claymore'),
+('Scuttling Torment', 'Teleportation Robes'),
+
+('The Swarm', 'Backstabber'),
+('The Swarm', 'Shulker Armor'),
+('The Swarm', 'Shadow Crossbow'),
+
+('Watcher of the End', 'Void Touched Blades'),
+('Watcher of the End', 'Entertainers Garb'),
+('Watcher of the End', 'Shadow Crossbow');
