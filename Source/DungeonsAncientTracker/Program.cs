@@ -42,7 +42,7 @@ namespace DungeonsAncientTracker
             MySqlDataAdapter adapter;
             MySqlDataReader reader;
             DataSet ds = new DataSet();
-            string sqlQuery;
+            string sqlQuery, server = "localhost", username = "root", password = "12345", dataBase = "membership";
 
             // Fine loading / saving
             string filePath = "../../";
