@@ -332,8 +332,32 @@ INSERT INTO Rune (runeName) VALUES
 ('Totem');
 
 INSERT INTO Ancient (ancientName, mobType) VALUES
-('Stone Guardian', 'Construct'),
-('Frost Wyrm', 'Dragon');
+('Abominable Weaver', 'Spider'),
+('Ancient Terror', 'Wraith'),
+('Barrage', 'Skeleton'),
+('Cursed Presence', 'Vanguard'),
+('First Enchanter', 'Enchanter'),
+('Grim Guardial', 'Zombie'),
+('Haunted Caller', 'Nercomancer'),
+('Mooshroom Ancient', 'Mooshroom'),
+('Oozing menace', 'Slime'),
+('Pestilent Conjurer', 'Witch'),
+('Solemn Giant', 'Pillager'),
+('The Seeking Flame', 'Vex'),
+('The Tiny Scourge', 'Baby Zombie'),
+('The Tower', 'Chicken Jockey Tower'),
+('Unbreakable One', 'Redstone Golem'),
+('Vigilant Scoundrel', 'Royal Guard'),
+('Thundering Growth', 'Leaper'),
+('Frost Warden', 'Geomancer'),
+('Windbeard', 'Goat'),
+('The Unending', 'Spawner'),
+('Unstoppable Tusk', 'Hoglin'),
+('Abyssal Eye', 'Guardian'),
+('Vengeful Mariner', 'Drowned'),
+('Scuttling Torment', 'Silverfish'),
+('The Swarm', 'Snareling'),
+('Watcher of the End', 'Watchling');
 
 -- Joint tables
 INSERT INTO MapItems (mapName, itemName) VALUES
