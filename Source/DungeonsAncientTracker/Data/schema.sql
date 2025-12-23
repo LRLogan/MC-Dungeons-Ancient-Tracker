@@ -55,3 +55,13 @@ CREATE TABLE AncientRune (
     FOREIGN KEY (ancientName) REFERENCES Ancient(ancientName),
     FOREIGN KEY (runeName) REFERENCES Rune(runeName)
 );
+
+-- Joint table to show the loot pool for each Ancient 
+DROP TABLE IF EXISTS AncientLoot;
+CREATE TABLE AncientLoot (
+    ancientName TEXT NOT NULL,
+    itemName TEXT NOT NULL,
+    PRIMARY KEY (ancientName, itemName),
+    FOREIGN KEY (ancientName) REFERENCES Ancient(ancientName),
+    FOREIGN KEY (itemName) REFERENCES Items(itemName)
+);

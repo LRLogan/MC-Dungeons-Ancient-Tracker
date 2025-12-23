@@ -337,7 +337,7 @@ INSERT INTO Ancient (ancientName, mobType) VALUES
 ('Barrage', 'Skeleton'),
 ('Cursed Presence', 'Vanguard'),
 ('First Enchanter', 'Enchanter'),
-('Grim Guardial', 'Zombie'),
+('Grim Guardian', 'Zombie'),
 ('Haunted Caller', 'Nercomancer'),
 ('Mooshroom Ancient', 'Mooshroom'),
 ('Oozing menace', 'Slime'),
@@ -369,5 +369,101 @@ INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Ancient Relic', 'Ice', 5);
 
 INSERT INTO AncientRune (ancientName, runeName, runeQuantity) VALUES
-('Stone Guardian', 'Fire', 3),
-('Frost Wyrm', 'Ice', 7);
+('Abominable Weaver', 'Arch', 1),
+('Abominable Weaver', 'Ring', 1),
+('Abominable Weaver', 'Anchor', 1),
+
+('Ancient Terror', 'Arch', 1),
+('Ancient Terror', 'A', 1),
+('Ancient Terror', 'Ring', 1),
+('Ancient Terror', 'Totem', 1),
+
+('Barrage', 'A', 1),
+('Barrage', 'Shield', 2),
+
+('Cursed Presence', 'L', 1),
+('Cursed Presence', 'T', 1),
+('Cursed Presence', 'A', 1),
+
+('First Enchanter', 'A', 1),
+('First Enchanter', 'Ring', 2),
+
+('Grim Guardian', 'Arch', 1),
+('Grim Guardian', 'T', 2),
+
+('Haunted Caller', 'Arch', 1),
+('Haunted Caller', 'Shield', 2),
+
+('Mooshroom Ancient', 'Arch', 1),
+('Mooshroom Ancient', 'L', 1),
+('Mooshroom Ancient', 'T', 1),
+('Mooshroom Ancient', 'Branch', 1),
+
+('Oozing menace', 'L', 1),
+('Oozing menace', 'Shield', 1),
+('Oozing menace', 'Totem', 1),
+
+('Pestilent Conjurer', 'L', 1),
+('Pestilent Conjurer', 'T', 1),
+('Pestilent Conjurer', 'Shield', 1),
+
+('Solemn Giant', 'Branch', 1),
+('Solemn Giant', 'Shield', 1),
+('Solemn Giant', 'Anchor', 1),
+('Solemn Giant', 'Ring', 1),
+
+('The Seeking Flame', 'A', 2),
+
+('The Tiny Scourge', 'L', 2),
+('The Tiny Scourge', 'A', 1),
+('The Tiny Scourge', 'Anchor', 1),
+
+('The Tower', 'A', 1),
+('The Tower', 'Branch', 1),
+('The Tower', 'Totem', 2),
+
+('Unbreakable One', 'T', 1),
+('Unbreakable One', 'Anchor', 2),
+
+('Vigilant Scoundrel', 'T', 2),
+('Vigilant Scoundrel', 'Shield', 1),
+('Vigilant Scoundrel', 'Anchor', 1),
+
+('Thundering Growth', 'L', 2),
+('Thundering Growth', 'Totem', 1),
+
+('Frost Warden', 'Shield', 1),
+('Frost Warden', 'Ring', 1),
+('Frost Warden', 'Totem', 1),
+
+('Windbeard', 'Arch', 2),
+('Windbeard', 'Totem', 1),
+
+('The Unending', 'Anchor', 1),
+('The Unending', 'Totem', 2),
+
+('Unstoppable Tusk', 'Arch', 1),
+('Unstoppable Tusk', 'T', 1),
+('Unstoppable Tusk', 'Shield', 1),
+
+('Abyssal Eye', 'L', 1),
+('Abyssal Eye', 'T', 1),
+('Abyssal Eye', 'Anchor', 1),
+
+('Vengeful Mariner', 'Ring', 2),
+('Vengeful Mariner', 'Anchor', 1),
+
+('Scuttling Torment', 'Arch', 2),
+('Scuttling Torment', 'L', 1),
+('Scuttling Torment', 'T', 1),
+
+('The Swarm', 'L', 2),
+('The Swarm', 'Shield', 1),
+('The Swarm', 'Ring', 1),
+
+('Watcher of the End', 'Arch', 1),
+('Watcher of the End', 'L', 1),
+('Watcher of the End', 'Anchor', 1);
+
+INSERT INTO AncientLoot (ancientName, itemName) VALUES
+('', '');
