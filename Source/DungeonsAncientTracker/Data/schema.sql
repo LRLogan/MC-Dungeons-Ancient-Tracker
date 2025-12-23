@@ -9,7 +9,8 @@ CREATE TABLE Maps (
 DROP TABLE IF EXISTS Items;
 CREATE TABLE Items (
     itemName TEXT NOT NULL PRIMARY KEY,
-    itemType TEXT NOT NULL
+    itemType TEXT NOT NULL,
+    dlc TEXT
 );
 
 DROP TABLE IF EXISTS Rune;
