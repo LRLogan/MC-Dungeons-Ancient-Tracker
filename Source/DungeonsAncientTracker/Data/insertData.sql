@@ -688,13 +688,56 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lost Settlement', 'Light Feather'),
 ('Lost Settlement', 'Shock Powder'),
 
-('Windswept Peaks', 'Howling Peaks'),
+('Windswept Peaks', 'Battlestaff'),
+('Windswept Peaks', 'Double Axe'),
+('Windswept Peaks', 'Tempest Knife'),
+('Windswept Peaks', 'Dual Crossbows'),
+('Windswept Peaks', 'Longbow'),
+('Windswept Peaks', 'Climbing Gear'),
+('Windswept Peaks', 'Spelunker Armor'),
+('Windswept Peaks', 'Death Cap Mushroom'),
+('Windswept Peaks', 'Enchanters Tome'),
+('Windswept Peaks', 'Ghost Cloak'),
+('Windswept Peaks', 'Updraft Tome'),
+('Windswept Peaks', 'Wind Horn'),
 
-('Gauntlet of Gales', NULL),
+('Gauntlet of Gales', 'Claymore'),
+('Gauntlet of Gales', 'Daggers'),
+('Gauntlet of Gales', 'Soul Bow'),
+('Gauntlet of Gales', 'Hunters Armor'),
+('Gauntlet of Gales', 'Plate Armor'),
+('Gauntlet of Gales', 'Scale Mail'),
+('Gauntlet of Gales', 'Enchanters Tome'),
+('Gauntlet of Gales', 'Scatter Mines'),
+('Gauntlet of Gales', 'Satchel of Elements'),
+('Gauntlet of Gales', 'Updraft Tome'),
 
-('Gale Sanctum', 'Howling Peaks'),
+('Gale Sanctum', 'Claymore'),
+('Gale Sanctum', 'Tempest Knife'),
+('Gale Sanctum', 'Bow'),
+('Gale Sanctum', 'Shortbow'),
+('Gale Sanctum', 'Wind Bow'),
+('Gale Sanctum', 'Emerald Gear'),
+('Gale Sanctum', 'Mystery Armor'),
+('Gale Sanctum', 'Phantom Armor'),
+('Gale Sanctum', 'Plate Armor'),
+('Gale Sanctum', 'Corrupted Beacon'),
+('Gale Sanctum', 'Harvester'),
+('Gale Sanctum', 'Satchel of Elements'),
 
-('Colossal Rampart', 'Howling Peaks'),
+('Colossal Rampart', 'Axe'),
+('Colossal Rampart', 'Battlestaff'),
+('Colossal Rampart', 'Spear'),
+('Colossal Rampart', 'Tempest Knife'),
+('Colossal Rampart', 'Exploding Crossbow'),
+('Colossal Rampart', 'Wind Bow'),
+('Colossal Rampart', 'Battle Robe'),
+('Colossal Rampart', 'Climbing Gear'),
+('Colossal Rampart', 'Emerald Gear'),
+('Colossal Rampart', 'Guards Armor'),
+('Colossal Rampart', 'Buzzy Nest'),
+('Colossal Rampart', 'Fireworks Arrow'),
+('Colossal Rampart', 'Scatter Mines'),
 
 ('Coral Rise', 'Hidden Depths'),
 
@@ -714,6 +757,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Nether Fortress', 'Flames of the Nether');
 
+-- TODO
 INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Iron Sword', 'Fire', 2),
 ('Ancient Relic', 'Ice', 5);
