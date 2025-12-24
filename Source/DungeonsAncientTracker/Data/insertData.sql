@@ -1242,147 +1242,217 @@ INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Shrieking Crossbow', 'Ring', 1),
 
 -- Armor
-('Archers Armor', 'Armor', 1),
+('Archers Armor', 'Shield', 1),
+('Archers Armor', 'L', 1),
 
-('Black Spot Armor', 'Armor', 1),
+('Black Spot Armor', 'Ring', 1),
 
-('Black Wolf Armor', 'Armor', 1),
+('Black Wolf Armor', 'L', 1),
+('Black Wolf Armor', 'Ring', 1),
+('Black Wolf Armor', 'Totem', 1),
 
-('Cave Crawler', 'Armor', 1),
+('Cave Crawler', 'T', 1),
+('Cave Crawler', 'Totem', 1),
 
-('Climbing Gear', 'Armor', 1),
+('Climbing Gear', 'Anchor', 1),
 
-('Ember Robe', 'Armor', 1),
+('Ember Robe', 'Arch', 1),
+('Ember Robe', 'T', 1),
+('Ember Robe', 'Ring', 1),
 
-('Emerald Gear', 'Armor', 1),
+('Emerald Gear', 'Arch', 1),
 
-('Entertainers Garb', 'Armor', 1),
+('Entertainers Garb', 'Ring', 1),
 
-('Evocation Robe', 'Armor', 1),
+('Evocation Robe', 'Arch', 1),
+('Evocation Robe', 'Ring', 1),
 
-('Fox Armor', 'Armor', 1),
+('Fox Armor', 'L', 1),
+('Fox Armor', 'Ring', 1),
+('Fox Armor', 'Totem', 1),
 
-('Frost Armor', 'Armor', 1),
+('Frost Armor', 'Ring', 1),
+('Frost Armor', 'Anchor', 1),
 
-('Gilded Glory', 'Armor', 1),
+('Gilded Glory', 'Arch', 1),
+('Gilded Glory', 'T', 1),
 
-('Goat Gear', 'Armor', 1),
+('Goat Gear', 'L', 1),
+('Goat Gear', 'Anchor', 1),
 
-('Golden Piglin Armor', 'Armor', 1),
+('Golden Piglin Armor', 'Arch', 1),
+('Golden Piglin Armor', 'Ring', 1),
 
-('Grim Armor', 'Armor', 1),
+('Grim Armor', 'A', 1),
+('Grim Armor', 'Ring', 1),
 
-('Guards Armor', 'Armor', 1),
+('Guards Armor', 'Shield', 1),
 
-('Highland Armor', 'Armor', 1),
+('Highland Armor', 'L', 1),
+('Highland Armor', 'T', 1),
+('Highland Armor', 'Anchor', 1),
 
-('Hunters Armor', 'Armor', 1),
+('Hunters Armor', 'Shield', 1),
 
-('Living Vines Armor', 'Armor', 1),
+('Living Vines Armor', 'L', 1),
 
-('Mercenary Armor', 'Armor', 1),
+('Mercenary Armor', 'Ring', 1),
+('Mercenary Armor', 'Anchor', 1),
 
-('Mystery Armor', 'Armor', 1),
+('Mystery Armor', 'Arch', 1),
+('Mystery Armor', 'Branch', 1),
 
-('Nimble Turtle Armor', 'Armor', 1),
+('Nimble Turtle Armor', 'L', 1),
+('Nimble Turtle Armor', 'Anchor', 1),
 
-('Ocelot Armor', 'Armor', 1),
+('Ocelot Armor', 'L', 1),
 
-('Opulent Armor', 'Armor', 1),
+('Opulent Armor', 'Arch', 1),
+('Opulent Armor', 'Anchor', 1),
 
-('Piglin Armor', 'Armor', 1),
+('Piglin Armor', 'Arch', 1),
 
-('Reinforced Mail', 'Armor', 1),
+('Reinforced Mail', 'Anchor', 1),
 
-('Renegade Armor', 'Armor', 1),
+('Renegade Armor', 'L', 1),
+('Renegade Armor', 'Ring', 1),
+('Renegade Armor', 'Anchor', 1),
 
-('Root Rot Armor', 'Armor', 1),
+('Root Rot Armor', 'Ring', 1),
 
-('Rugged Climbing Gear', 'Armor', 1),
+('Rugged Climbing Gear', 'Anchor', 1),
 
-('Scale Mail', 'Armor', 1),
+('Scale Mail', 'T', 1),
+('Scale Mail', 'Anchor', 1),
 
-('Shadow Walker', 'Armor', 1),
+('Shadow Walker', 'L', 1),
+('Shadow Walker', 'Anchor', 1),
 
-('Shulker Armor', 'Armor', 1),
+('Shulker Armor', 'T', 1),
+('Shulker Armor', 'Anchor', 1),
 
-('Snow Armor', 'Armor', 1),
+('Snow Armor', 'Anchor', 1),
 
-('Soul Robe', 'Armor', 1),
+('Soul Robe', 'A', 1),
 
-('Souldancer Robe', 'Armor', 1),
+('Souldancer Robe', 'A', 1),
+('Souldancer Robe', 'Anchor', 1),
 
-('Spelunker Armor', 'Armor', 1),
+('Spelunker Armor', 'Totem', 1),
 
-('Spider Armor', 'Armor', 1),
+('Spider Armor', 'T', 1),
+('Spider Armor', 'Anchor', 1),
 
-('Sprout Armor', 'Armor', 1),
+('Sprout Armor', 'L', 1),
 
-('Stalwart Armor', 'Armor', 1),
+('Stalwart Armor', 'Arch', 1),
+('Stalwart Armor', 'Anchor', 1),
 
-('Sturdy Shulker Armor', 'Armor', 1),
+('Sturdy Shulker Armor', 'T', 1),
+('Sturdy Shulker Armor', 'Ring', 1),
+('Sturdy Shulker Armor', 'Anchor', 1),
 
-('Teleportation Robes', 'Armor', 1),
+('Teleportation Robes', 'Arch', 1),
+('Teleportation Robes', 'A', 1),
 
-('The Troubadour', 'Armor', 1),
+('The Troubadour', 'Ring', 1),
+('The Troubadour', 'Anchor', 1),
 
-('Thief Armor', 'Armor', 1),
+('Thief Armor', 'T', 1),
 
-('Turtle Armor', 'Armor', 1),
+('Turtle Armor', 'Anchor', 1),
 
-('Unstable Robes', 'Armor', 1),
+('Unstable Robes', 'Arch', 1),
+('Unstable Robes', 'A', 1),
+('Unstable Robes', 'L', 1),
 
-('Verdant Robe', 'Armor', 1),
+('Verdant Robe', 'Arch', 1),
+('Verdant Robe', 'A', 1),
+('Verdant Robe', 'Ring', 1),
 
-('Wither Armor', 'Armor', 1),
+('Wither Armor', 'A', 1),
+('Wither Armor', 'Ring', 1),
+('Wither Armor', 'Anchor', 1),
 
-('Wolf Armor', 'Armor', 1),
+('Wolf Armor', 'Ring', 1),
+('Wolf Armor', 'Totem', 1),
 
-('Phantom Armor', 'Armor', 1),
+('Phantom Armor', 'A', 1),
+('Phantom Armor', 'Shield', 1),
 
-('Frost Bite', 'Armor', 1),
+('Frost Bite', 'A', 1),
+('Frost Bite', 'Shield', 1),
+('Frost Bite', 'Ring', 1),
 
-('Plate Armor', 'Armor', 1),
+('Plate Armor', 'T', 1),
+('Plate Armor', 'Anchor', 1),
 
-('Full Metal Armor', 'Armor', 1),
+('Full Metal Armor', 'T', 1),
+('Full Metal Armor', 'Anchor', 1),
 
-('Squid Armor', 'Armor', 1),
+('Squid Armor', 'Anchor', 1),
 
-('Glow Squid Armor', 'Armor', 1),
+('Glow Squid Armor', 'L', 1),
+('Glow Squid Armor', 'Anchor', 1),
 
-('Battle Robe', 'Armor', 1),
+('Battle Robe', 'Arch', 1),
+('Battle Robe', 'T', 1),
 
-('Splendid Robe', 'Armor', 1),
+('Splendid Robe', 'Arch', 1),
+('Splendid Robe', 'T', 1),
+('Splendid Robe', 'Shield', 1),
 
-('Champions Armor', 'Armor', 1),
+('Champions Armor', 'Anchor', 1),
 
-('Heros Armor', 'Armor', 1),
+('Heros Armor', 'Ring', 1),
+('Heros Armor', 'Anchor', 1),
 
-('Dark Armor', 'Armor', 1),
+('Dark Armor', 'A', 1),
+('Dark Armor', 'Anchor', 1),
 
-('Titans Shroud', 'Armor', 1),
+('Titans Shroud', 'A', 1),
+('Titans Shroud', 'Ring', 1),
+('Titans Shroud', 'Anchor', 1),
 
-('Ghostly Armor', 'Armor', 1),
+('Ghostly Armor', 'L', 1),
+('Ghostly Armor', 'Branch', 1),
 
-('Ghost Kindler', 'Armor', 1),
+('Ghost Kindler', 'L', 1),
+('Ghost Kindler', 'T', 1),
+('Ghost Kindler', 'Branch', 1),
 
-('Beenest Armor', 'Armor', 1),
+('Beenest Armor', 'Branch', 1),
+('Beenest Armor', 'Totem', 1),
 
-('Beehive Armor', 'Armor', 1),
+('Beehive Armor', 'T', 1),
+('Beehive Armor', 'Branch', 1),
+('Beehive Armor', 'Totem', 1),
 
-('Hungry Horror', 'Armor', 1),
+('Hungry Horror', 'L', 1),
+('Hungry Horror', 'Ring', 1),
+('Hungry Horror', 'Anchor', 1),
 
-('Arctic Fox Armor', 'Armor', 1),
+('Arctic Fox Armor', 'Ring', 1),
+('Arctic Fox Armor', 'Anchor', 1),
+('Arctic Fox Armor', 'Totem', 1),
 
-('Sweet Tooth', 'Armor', 1),
+('Sweet Tooth', 'T', 1),
+('Sweet Tooth', 'Totem', 1),
 
-('Cauldron Armor', 'Armor', 1),
+('Cauldron Armor', 'T', 1),
+('Cauldron Armor', 'Anchor', 1),
 
-('The Spooky Gourdian', 'Armor', 1),
+('The Spooky Gourdian', 'A', 1),
+('The Spooky Gourdian', 'Ring', 1),
+('The Spooky Gourdian', 'Anchor', 1),
 
-('Cloaked Skull', 'Armor', 1),
+('Cloaked Skull', 'L', 1),
+('Cloaked Skull', 'T', 1),
+('Cloaked Skull', 'Branch', 1),
 
-('Hungriest Horror', 'Armor', 1),
+('Hungriest Horror', 'L', 1),
+('Hungriest Horror', 'Ring', 1),
+('Hungriest Horror', 'Anchor', 1),
 
 -- Artifacts
 ('Corrupted Beacon', 'A', 1),
