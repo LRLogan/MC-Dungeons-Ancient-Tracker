@@ -836,7 +836,6 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Nether Fortress', 'Lightning Rod'),
 ('Nether Fortress', 'Powershaker');
 
--- TODO
 INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 -- Melee Weapons
 ('Anchor', 'Anchor', 1),
@@ -1054,147 +1053,193 @@ INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Spine-Chill Spear', 'Ring', 1),
 
 -- Ranged Weapons
-('Ancient Bow', 'Ranged', 1),
+('Ancient Bow', 'L', 1),
+('Ancient Bow', 'Totem', 1),
 
-('Bonebow', 'Ranged', 1),
+('Bonebow', 'Shield', 1),
 
-('Bow', 'Ranged', 1),
+('Bow', 'Shield', 1),
 
-('Bubble Bow', 'Ranged', 1),
+('Bubble Bow', 'Shield', 1),
 
-('Bubble Burster', 'Ranged', 1),
+('Bubble Burster', 'Shield', 1),
+('Bubble Burster', 'Ring', 1),
 
-('Burst Gale Bow', 'Ranged', 1),
+('Burst Gale Bow', 'L', 1),
+('Burst Gale Bow', 'T', 1),
 
-('Call of the Void', 'Ranged', 1),
+('Call of the Void', 'Shield', 1),
+('Call of the Void', 'Arch', 1),
 
-('Echo of the Valley', 'Ranged', 1),
+('Echo of the Valley', 'Shield', 1),
+('Echo of the Valley', 'T', 1),
 
-('Elite Power Bow', 'Ranged', 1),
+('Elite Power Bow', 'Shield', 1),
+('Elite Power Bow', 'T', 1),
 
-('Guardian Bow', 'Ranged', 1),
+('Guardian Bow', 'Shield', 1),
+('Guardian Bow', 'Ring', 1),
 
-('Hunters Promise', 'Ranged', 1),
+('Hunters Promise', 'Shield', 1),
+('Hunters Promise', 'Totem', 1),
 
-('Hunting Bow', 'Ranged', 1),
+('Hunting Bow', 'Totem', 1),
 
-('Longbow', 'Ranged', 1),
+('Longbow', 'Shield', 1),
 
-('Love Spell Bow', 'Ranged', 1),
+('Love Spell Bow', 'Shield', 1),
+('Love Spell Bow', 'Ring', 1),
 
-('Masters Bow', 'Ranged', 1),
+('Masters Bow', 'Shield', 1),
+('Masters Bow', 'Totem', 1),
 
-('Mechanical Shortbow', 'Ranged', 1),
+('Mechanical Shortbow', 'Shield', 1),
+('Mechanical Shortbow', 'L', 1),
 
-('Power Bow', 'Ranged', 1),
+('Power Bow', 'Shield', 1),
+('Power Bow', 'T', 1),
 
-('Purple Storm', 'Ranged', 1),
+('Purple Storm', 'Shield', 1),
+('Purple Storm', 'L', 1),
 
-('Red Snake', 'Ranged', 1),
+('Red Snake', 'Shield', 1),
+('Red Snake', 'Arch', 1),
 
-('Sabrewing', 'Ranged', 1),
+('Sabrewing', 'Shield', 1),
+('Sabrewing', 'T', 1),
+('Sabrewing', 'Ring', 1),
 
-('Shortbow', 'Ranged', 1),
+('Shortbow', 'Shield', 1),
 
-('Snow Bow', 'Ranged', 1),
+('Snow Bow', 'Ring', 1),
 
-('The Green Menace', 'Ranged', 1),
+('The Green Menace', 'Arch', 1),
+('The Green Menace', 'Shield', 1),
 
-('The Pink Scoundrel', 'Ranged', 1),
+('The Pink Scoundrel', 'Shield', 1),
+('The Pink Scoundrel', 'T', 1),
 
-('Trickbow', 'Ranged', 1),
+('Trickbow', 'Shield', 1),
 
-('Twin Bow', 'Ranged', 1),
+('Twin Bow', 'Shield', 1),
+('Twin Bow', 'Ring', 1),
 
-('Twisting Vine Bow', 'Ranged', 1),
+('Twisting Vine Bow', 'Shield', 1),
 
-('Void Bow', 'Ranged', 1),
+('Void Bow', 'Shield', 1),
 
-('Weeping Vine Bow', 'Ranged', 1),
+('Weeping Vine Bow', 'Shield', 1),
+('Weeping Vine Bow', 'L', 1),
 
-('Wind Bow', 'Ranged', 1),
+('Wind Bow', 'T', 1),
 
-('Winters Touch', 'Ranged', 1),
+('Winters Touch', 'Shield', 1),
+('Winters Touch', 'Ring', 1),
 
-('Soul Bow', 'Ranged', 1),
+('Soul Bow', 'A', 1),
 
-('Bow of Lost Souls', 'Ranged', 1),
+('Bow of Lost Souls', 'Shield', 1),
+('Bow of Lost Souls', 'A', 1),
 
-('Nocturnal Bow', 'Ranged', 1),
+('Nocturnal Bow', 'A', 1),
+('Nocturnal Bow', 'L', 1),
 
-('Haunted Bow', 'Ranged', 1),
+('Haunted Bow', 'T', 1),
 
-('Shivering Bow', 'Ranged', 1),
+('Shivering Bow', 'A', 1),
+('Shivering Bow', 'L', 1),
 
-('Sugar Rush', 'Ranged', 1),
+('Sugar Rush', 'Shield', 1),
+('Sugar Rush', 'T', 1),
 
-('Phantom Bow', 'Ranged', 1),
+('Phantom Bow', 'T', 1),
+('Phantom Bow', 'Shield', 1),
+('Phantom Bow', 'Ring', 1),
 
-('Web Bow', 'Ranged', 1),
+('Web Bow', 'Shield', 1),
+('Web Bow', 'Ring', 1),
 
-('Gloopy Bow', 'Ranged', 1),
+('Gloopy Bow', 'Shield', 1),
+('Gloopy Bow', 'Ring', 1),
 
-('Cog Crossbow', 'Ranged', 1),
+('Cog Crossbow', 'Shield', 1),
 
-('Pride of the Piglins', 'Ranged', 1),
+('Pride of the Piglins', 'Shield', 1),
+('Pride of the Piglins', 'T', 1),
 
-('Crossbow', 'Ranged', 1),
+('Crossbow', 'Shield', 1),
 
-('Azure Seeker', 'Ranged', 1),
+('Azure Seeker', 'Shield', 1),
 
-('The Slicer', 'Ranged', 1),
+('The Slicer', 'Shield', 1),
 
-('Dual Crossbows', 'Ranged', 1),
+('Dual Crossbows', 'Shield', 1),
 
-('Baby Crossbows', 'Ranged', 1),
+('Baby Crossbows', 'Shield', 1),
 
-('Spellbound Crossbows', 'Ranged', 1),
+('Spellbound Crossbows', 'Shield', 1),
+('Spellbound Crossbows', 'Arch', 1),
 
-('Exploding Crossbow', 'Ranged', 1),
+('Exploding Crossbow', 'T', 1),
 
-('Firebolt Thrower', 'Ranged', 1),
+('Firebolt Thrower', 'T', 1),
 
-('Imploding Crossbow', 'Ranged', 1),
+('Imploding Crossbow', 'T', 1),
+('Imploding Crossbow', 'Arch', 1),
 
-('Harpoon Crossbow', 'Ranged', 1),
+('Harpoon Crossbow', 'Shield', 1),
 
-('Nautical Crossbow', 'Ranged', 1),
+('Nautical Crossbow', 'Shield', 1),
+('Nautical Crossbow', 'Ring', 1),
 
-('Heavy Crossbow', 'Ranged', 1),
+('Heavy Crossbow', 'T', 1),
 
-('Doom Crossbow', 'Ranged', 1),
+('Doom Crossbow', 'T', 1),
 
-('Slayer Crossbow', 'Ranged', 1),
+('Slayer Crossbow', 'Shield', 1),
+('Slayer Crossbow', 'T', 1),
 
-('Rapid Crossbow', 'Ranged', 1),
+('Rapid Crossbow', 'Shield', 1),
 
-('Auto Crossbow', 'Ranged', 1),
+('Auto Crossbow', 'Shield', 1),
+('Auto Crossbow', 'L', 1),
 
-('Butterfly Crossbow', 'Ranged', 1),
+('Butterfly Crossbow', 'Shield', 1),
+('Butterfly Crossbow', 'Ring', 1),
 
-('Scatter Crossbow', 'Ranged', 1),
+('Scatter Crossbow', 'Anchor', 1),
 
-('Harp Crossbow', 'Ranged', 1),
+('Harp Crossbow', 'T', 1),
+('Harp Crossbow', 'Anchor', 1),
 
-('Lightning Harp Crossbow', 'Ranged', 1),
+('Lightning Harp Crossbow', 'T', 1),
+('Lightning Harp Crossbow', 'Anchor', 1),
 
-('Shadow Crossbow', 'Ranged', 1),
+('Shadow Crossbow', 'Shield', 1),
 
-('Veiled Crossbow', 'Ranged', 1),
+('Veiled Crossbow', 'Shield', 1),
+('Veiled Crossbow', 'L', 1),
 
-('Soul Crossbow', 'Ranged', 1),
+('Soul Crossbow', 'A', 1),
 
-('Feral Soul Crossbow', 'Ranged', 1),
+('Feral Soul Crossbow', 'A', 1),
 
-('Voidcaller', 'Ranged', 1),
+('Voidcaller', 'A', 1),
+('Voidcaller', 'Arch', 1),
 
-('Burst Crossbow', 'Ranged', 1),
+('Burst Crossbow', 'Shield', 1),
+('Burst Crossbow', 'Branch', 1),
 
-('Corrupted Crossbow', 'Ranged', 1),
+('Corrupted Crossbow', 'Shield', 1),
+('Corrupted Crossbow', 'L', 1),
+('Corrupted Crossbow', 'Branch', 1),
 
-('Soul Hunter Crossbow', 'Ranged', 1),
+('Soul Hunter Crossbow', 'Shield', 1),
+('Soul Hunter Crossbow', 'A', 1),
+('Soul Hunter Crossbow', 'Branch', 1),
 
-('Shrieking Crossbow', 'Ranged', 1),
+('Shrieking Crossbow', 'Shield', 1),
+('Shrieking Crossbow', 'Ring', 1),
 
 -- Armor
 ('Archers Armor', 'Armor', 1),
