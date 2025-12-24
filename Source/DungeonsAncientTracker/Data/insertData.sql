@@ -838,8 +838,555 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 -- TODO
 INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
-('Iron Sword', 'Fire', 2),
-('Ancient Relic', 'Ice', 5);
+-- Melee Weapons
+('Anchor', 'Melee', 1),
+
+('Axe', 'Melee', 1),
+
+('Backstabber', 'Melee', 1),
+
+('Battlestaff', 'Melee', 1),
+
+('Battlestaff of Terror', 'Melee', 1),
+
+('Bone Cudgel', 'Melee', 1),
+
+('Boneclub', 'Melee', 1),
+
+('Broadsword', 'Melee', 1),
+
+('Broken Sawblade', 'Melee', 1),
+
+('Chill Gale Knife', 'Melee', 1),
+
+('Claymore', 'Melee', 1),
+
+('Coral Blade', 'Melee', 1),
+
+('Cutlass', 'Melee', 1),
+
+('Daggers', 'Melee', 1),
+
+('Dancers Sword', 'Melee', 1),
+
+('Diamond Pickaxe', 'Melee', 1),
+
+('Diamond Sword', 'Melee', 1),
+
+('Encrusted Anchor', 'Melee', 1),
+
+('Eternal Knife', 'Melee', 1),
+
+('Fangs of Frost', 'Melee', 1),
+
+('Firebrand', 'Melee', 1),
+
+('Flail', 'Melee', 1),
+
+('Glaive', 'Melee', 1),
+
+('Grave Bane', 'Melee', 1),
+
+('Great Axeblade', 'Melee', 1),
+
+('Great Hammer', 'Melee', 1),
+
+('Growing Staff', 'Melee', 1),
+
+('Hammer of Gravity', 'Melee', 1),
+
+('Hawkbrand', 'Melee', 1),
+
+('Heartstealer', 'Melee', 1),
+
+('Highland Axe', 'Melee', 1),
+
+('Mace', 'Melee', 1),
+
+('Mechanized Sawblade', 'Melee', 1),
+
+('Moon Daggers', 'Melee', 1),
+
+('Nameless Blade', 'Melee', 1),
+
+('Nightmares Bite', 'Melee', 1),
+
+('Obsidian Claymore', 'Melee', 1),
+
+('Pickaxe', 'Melee', 1),
+
+('Resolute Tempest Knife', 'Melee', 1),
+
+('Sheer Daggers', 'Melee', 1),
+
+('Sickles', 'Melee', 1),
+
+('Soul Knife', 'Melee', 1),
+
+('Sponge Striker', 'Melee', 1),
+
+('Stormlander', 'Melee', 1),
+
+('Suns Grace', 'Melee', 1),
+
+('Swift Striker', 'Melee', 1),
+
+('Sword', 'Melee', 1),
+
+('Tempest Knife', 'Melee', 1),
+
+('The Beginning and The End', 'Melee', 1),
+
+('The Last Laugh', 'Melee', 1),
+
+('The Starless Night', 'Melee', 1),
+
+('Truthseeker', 'Melee', 1),
+
+('Venom Glave', 'Melee', 1),
+
+('Vine Whip', 'Melee', 1),
+
+('Void Touched Blades', 'Melee', 1),
+
+('Whip', 'Melee', 1),
+
+('Gauntlets', 'Melee', 1),
+
+('Fighters Bindings', 'Melee', 1),
+
+('Maulers', 'Melee', 1),
+
+('Soul Fists', 'Melee', 1),
+
+('Soul Scythe', 'Melee', 1),
+
+('Frost Scythe', 'Melee', 1),
+
+('Jailors Scythe', 'Melee', 1),
+
+('Katana', 'Melee', 1),
+
+('Dark Katana', 'Melee', 1),
+
+('Masters Katana', 'Melee', 1),
+
+('Double Axe', 'Melee', 1),
+
+('Cursed Axe', 'Melee', 1),
+
+('Whirlwind', 'Melee', 1),
+
+('Spear', 'Melee', 1),
+
+('Fortune Spear', 'Melee', 1),
+
+('Whispering Spear', 'Melee', 1),
+
+('Rapier', 'Melee', 1),
+
+('Bee Stinger', 'Melee', 1),
+
+('Freezing Foil', 'Melee', 1),
+
+('Sinister Sword', 'Melee', 1),
+
+('Frost Slayer', 'Melee', 1),
+
+('Sparkler', 'Melee', 1),
+
+('Skull Scythe', 'Melee', 1),
+
+('Crackling Broom', 'Melee', 1),
+
+('Bonehead Hammer', 'Melee', 1),
+
+('Spine-Chill Spear', 'Melee', 1),
+
+-- Ranged Weapons
+('Ancient Bow', 'Ranged', 1),
+
+('Bonebow', 'Ranged', 1),
+
+('Bow', 'Ranged', 1),
+
+('Bubble Bow', 'Ranged', 1),
+
+('Bubble Burster', 'Ranged', 1),
+
+('Burst Gale Bow', 'Ranged', 1),
+
+('Call of the Void', 'Ranged', 1),
+
+('Echo of the Valley', 'Ranged', 1),
+
+('Elite Power Bow', 'Ranged', 1),
+
+('Guardian Bow', 'Ranged', 1),
+
+('Hunters Promise', 'Ranged', 1),
+
+('Hunting Bow', 'Ranged', 1),
+
+('Longbow', 'Ranged', 1),
+
+('Love Spell Bow', 'Ranged', 1),
+
+('Masters Bow', 'Ranged', 1),
+
+('Mechanical Shortbow', 'Ranged', 1),
+
+('Power Bow', 'Ranged', 1),
+
+('Purple Storm', 'Ranged', 1),
+
+('Red Snake', 'Ranged', 1),
+
+('Sabrewing', 'Ranged', 1),
+
+('Shortbow', 'Ranged', 1),
+
+('Snow Bow', 'Ranged', 1),
+
+('The Green Menace', 'Ranged', 1),
+
+('The Pink Scoundrel', 'Ranged', 1),
+
+('Trickbow', 'Ranged', 1),
+
+('Twin Bow', 'Ranged', 1),
+
+('Twisting Vine Bow', 'Ranged', 1),
+
+('Void Bow', 'Ranged', 1),
+
+('Weeping Vine Bow', 'Ranged', 1),
+
+('Wind Bow', 'Ranged', 1),
+
+('Winters Touch', 'Ranged', 1),
+
+('Soul Bow', 'Ranged', 1),
+
+('Bow of Lost Souls', 'Ranged', 1),
+
+('Nocturnal Bow', 'Ranged', 1),
+
+('Haunted Bow', 'Ranged', 1),
+
+('Shivering Bow', 'Ranged', 1),
+
+('Sugar Rush', 'Ranged', 1),
+
+('Phantom Bow', 'Ranged', 1),
+
+('Web Bow', 'Ranged', 1),
+
+('Gloopy Bow', 'Ranged', 1),
+
+('Cog Crossbow', 'Ranged', 1),
+
+('Pride of the Piglins', 'Ranged', 1),
+
+('Crossbow', 'Ranged', 1),
+
+('Azure Seeker', 'Ranged', 1),
+
+('The Slicer', 'Ranged', 1),
+
+('Dual Crossbows', 'Ranged', 1),
+
+('Baby Crossbows', 'Ranged', 1),
+
+('Spellbound Crossbows', 'Ranged', 1),
+
+('Exploding Crossbow', 'Ranged', 1),
+
+('Firebolt Thrower', 'Ranged', 1),
+
+('Imploding Crossbow', 'Ranged', 1),
+
+('Harpoon Crossbow', 'Ranged', 1),
+
+('Nautical Crossbow', 'Ranged', 1),
+
+('Heavy Crossbow', 'Ranged', 1),
+
+('Doom Crossbow', 'Ranged', 1),
+
+('Slayer Crossbow', 'Ranged', 1),
+
+('Rapid Crossbow', 'Ranged', 1),
+
+('Auto Crossbow', 'Ranged', 1),
+
+('Butterfly Crossbow', 'Ranged', 1),
+
+('Scatter Crossbow', 'Ranged', 1),
+
+('Harp Crossbow', 'Ranged', 1),
+
+('Lightning Harp Crossbow', 'Ranged', 1),
+
+('Shadow Crossbow', 'Ranged', 1),
+
+('Veiled Crossbow', 'Ranged', 1),
+
+('Soul Crossbow', 'Ranged', 1),
+
+('Feral Soul Crossbow', 'Ranged', 1),
+
+('Voidcaller', 'Ranged', 1),
+
+('Burst Crossbow', 'Ranged', 1),
+
+('Corrupted Crossbow', 'Ranged', 1),
+
+('Soul Hunter Crossbow', 'Ranged', 1),
+
+('Shrieking Crossbow', 'Ranged', 1),
+
+-- Armor
+('Archers Armor', 'Armor', 1),
+
+('Black Spot Armor', 'Armor', 1),
+
+('Black Wolf Armor', 'Armor', 1),
+
+('Cave Crawler', 'Armor', 1),
+
+('Climbing Gear', 'Armor', 1),
+
+('Ember Robe', 'Armor', 1),
+
+('Emerald Gear', 'Armor', 1),
+
+('Entertainers Garb', 'Armor', 1),
+
+('Evocation Robe', 'Armor', 1),
+
+('Fox Armor', 'Armor', 1),
+
+('Frost Armor', 'Armor', 1),
+
+('Gilded Glory', 'Armor', 1),
+
+('Goat Gear', 'Armor', 1),
+
+('Golden Piglin Armor', 'Armor', 1),
+
+('Grim Armor', 'Armor', 1),
+
+('Guards Armor', 'Armor', 1),
+
+('Highland Armor', 'Armor', 1),
+
+('Hunters Armor', 'Armor', 1),
+
+('Living Vines Armor', 'Armor', 1),
+
+('Mercenary Armor', 'Armor', 1),
+
+('Mystery Armor', 'Armor', 1),
+
+('Nimble Turtle Armor', 'Armor', 1),
+
+('Ocelot Armor', 'Armor', 1),
+
+('Opulent Armor', 'Armor', 1),
+
+('Piglin Armor', 'Armor', 1),
+
+('Reinforced Mail', 'Armor', 1),
+
+('Renegade Armor', 'Armor', 1),
+
+('Root Rot Armor', 'Armor', 1),
+
+('Rugged Climbing Gear', 'Armor', 1),
+
+('Scale Mail', 'Armor', 1),
+
+('Shadow Walker', 'Armor', 1),
+
+('Shulker Armor', 'Armor', 1),
+
+('Snow Armor', 'Armor', 1),
+
+('Soul Robe', 'Armor', 1),
+
+('Souldancer Robe', 'Armor', 1),
+
+('Spelunker Armor', 'Armor', 1),
+
+('Spider Armor', 'Armor', 1),
+
+('Sprout Armor', 'Armor', 1),
+
+('Stalwart Armor', 'Armor', 1),
+
+('Sturdy Shulker Armor', 'Armor', 1),
+
+('Teleportation Robes', 'Armor', 1),
+
+('The Troubadour', 'Armor', 1),
+
+('Thief Armor', 'Armor', 1),
+
+('Turtle Armor', 'Armor', 1),
+
+('Unstable Robes', 'Armor', 1),
+
+('Verdant Robe', 'Armor', 1),
+
+('Wither Armor', 'Armor', 1),
+
+('Wolf Armor', 'Armor', 1),
+
+('Phantom Armor', 'Armor', 1),
+
+('Frost Bite', 'Armor', 1),
+
+('Plate Armor', 'Armor', 1),
+
+('Full Metal Armor', 'Armor', 1),
+
+('Squid Armor', 'Armor', 1),
+
+('Glow Squid Armor', 'Armor', 1),
+
+('Battle Robe', 'Armor', 1),
+
+('Splendid Robe', 'Armor', 1),
+
+('Champions Armor', 'Armor', 1),
+
+('Heros Armor', 'Armor', 1),
+
+('Dark Armor', 'Armor', 1),
+
+('Titans Shroud', 'Armor', 1),
+
+('Ghostly Armor', 'Armor', 1),
+
+('Ghost Kindler', 'Armor', 1),
+
+('Beenest Armor', 'Armor', 1),
+
+('Beehive Armor', 'Armor', 1),
+
+('Hungry Horror', 'Armor', 1),
+
+('Arctic Fox Armor', 'Armor', 1),
+
+('Sweet Tooth', 'Armor', 1),
+
+('Cauldron Armor', 'Armor', 1),
+
+('The Spooky Gourdian', 'Armor', 1),
+
+('Cloaked Skull', 'Armor', 1),
+
+('Hungriest Horror', 'Armor', 1),
+
+-- Artifacts
+('Corrupted Beacon', 'A', 1),
+
+('Updraft Tome', 'Arch', 1),
+
+('Harvester', 'A', 1),
+
+('Lightning Rod', 'A', 1),
+
+('Scatter Mines', 'T', 1),
+
+('Blast Fungus', 'T', 1),
+
+('Spinblade', 'T', 1),
+
+('Eye of the Guardian', 'Arch', 1),
+
+('Corrupted Pumpkin', 'A', 1),
+
+('Corrupted Seeds', 'Arch', 1),
+
+('Fishing Rod', 'T', 1),
+
+('Gong of Weakening', 'Ring', 1),
+
+('Ice Wand', 'Arch', 1),
+
+('Love Medallion', 'Arch', 1),
+
+('Satchel of Elements', 'Arch', 1),
+
+('Shock Powder', 'Ring', 1),
+('Shock Powder', 'Anchor', 1),
+
+('Fireworks Arrow', 'Shield', 1),
+
+('Flaming Quiver', 'Shield', 1),
+
+('Torment Quiver', 'Shield', 1),
+('Torment Quiver', 'A', 1),
+
+('Thundering Quiver', 'Shield', 1),
+
+('Harpoon Quiver', 'Shield', 1),
+
+('Void Quiver', 'Shield', 1),
+
+('Buzzy Nest', 'Totem', 1),
+
+('Enchanted Grass', 'Totem', 1),
+('Enchanted Grass', 'Arch', 1),
+
+('Golem Kit', 'Totem', 1),
+
+('Soul Lantern', 'Totem', 1),
+('Soul Lantern', 'A', 1),
+
+('Tasty Bone', 'Totem', 1),
+
+('Vexing Chant', 'Totem', 1),
+
+('Wonderful Wheat', 'Totem', 1),
+
+('Boots of Swiftness', 'L', 1),
+
+('Death Cap Mushroom', 'T', 1),
+
+('Ghost Cloak', 'L', 1),
+('Ghost Cloak', 'Anchor', 1),
+
+('Light Feather', 'L', 1),
+
+('Enchanters Tome', 'Arch', 1),
+
+('Iron Hide Amulet', 'Anchor', 1),
+
+('Shadow Shifter', 'A', 1),
+
+('Soul Healer', 'A', 1),
+('Soul Healer', 'Ring', 1),
+
+('Tome of Duplication', 'Ring', 1),
+
+('Totem of Casting', 'A', 1),
+
+('Totem of Regeneration', 'Ring', 1),
+
+('Totem of Shielding', 'Ring', 1),
+('Totem of Shielding', 'Anchor', 1),
+
+('Satchel of Elixirs', 'Ring', 1),
+
+('Satchel of Snacks', 'Ring', 1),
+
+('Wind Horn', 'Totem', 1),
+('Wind Horn', 'Ring', 1),
+
+('Powershaker', 'T', 1);
 
 INSERT INTO AncientRune (ancientName, runeName, runeQuantity) VALUES
 ('Abominable Weaver', 'Arch', 1),
