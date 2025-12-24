@@ -839,169 +839,219 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 -- TODO
 INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 -- Melee Weapons
-('Anchor', 'Melee', 1),
+('Anchor', 'Anchor', 1),
 
-('Axe', 'Melee', 1),
+('Axe', 'T', 1),
 
-('Backstabber', 'Melee', 1),
+('Backstabber', 'L', 1),
 
-('Battlestaff', 'Melee', 1),
+('Battlestaff', 'T', 1),
 
-('Battlestaff of Terror', 'Melee', 1),
+('Battlestaff of Terror', 'T', 1),
+('Battlestaff of Terror', 'Arch', 1),
 
-('Bone Cudgel', 'Melee', 1),
+('Bone Cudgel', 'T', 1),
 
-('Boneclub', 'Melee', 1),
+('Boneclub', 'T', 1),
 
-('Broadsword', 'Melee', 1),
+('Broadsword', 'T', 1),
+('Broadsword', 'Anchor', 1),
 
-('Broken Sawblade', 'Melee', 1),
+('Broken Sawblade', 'Anchor', 1),
 
-('Chill Gale Knife', 'Melee', 1),
+('Chill Gale Knife', 'L', 1),
+('Chill Gale Knife', 'Ring', 1),
 
-('Claymore', 'Melee', 1),
+('Claymore', 'Anchor', 1),
 
-('Coral Blade', 'Melee', 1),
+('Coral Blade', 'T', 1),
 
-('Cutlass', 'Melee', 1),
+('Cutlass', 'T', 1),
 
-('Daggers', 'Melee', 1),
+('Daggers', 'T', 1),
 
-('Dancers Sword', 'Melee', 1),
+('Dancers Sword', 'L', 1),
+('Dancers Sword', 'T', 1),
 
-('Diamond Pickaxe', 'Melee', 1),
+('Diamond Pickaxe', 'Arch', 1),
+('Diamond Pickaxe', 'T', 1),
 
-('Diamond Sword', 'Melee', 1),
+('Diamond Sword', 'T', 1),
 
-('Encrusted Anchor', 'Melee', 1),
+('Encrusted Anchor', 'Ring', 1),
+('Encrusted Anchor', 'Anchor', 1),
 
-('Eternal Knife', 'Melee', 1),
+('Eternal Knife', 'A', 1),
 
-('Fangs of Frost', 'Melee', 1),
+('Fangs of Frost', 'T', 1),
+('Fangs of Frost', 'Ring', 1),
 
-('Firebrand', 'Melee', 1),
+('Firebrand', 'Arch', 1),
+('Firebrand', 'T', 1),
 
-('Flail', 'Melee', 1),
+('Flail', 'Arch', 1),
+('Flail', 'T', 1),
 
-('Glaive', 'Melee', 1),
+('Glaive', 'Ring', 1),
 
-('Grave Bane', 'Melee', 1),
+('Grave Bane', 'T', 1),
+('Grave Bane', 'Ring', 1),
 
-('Great Axeblade', 'Melee', 1),
+('Great Axeblade', 'L', 1),
+('Great Axeblade', 'Anchor', 1),
 
-('Great Hammer', 'Melee', 1),
+('Great Hammer', 'Anchor', 1),
 
-('Growing Staff', 'Melee', 1),
+('Growing Staff', 'T', 1),
 
-('Hammer of Gravity', 'Melee', 1),
+('Hammer of Gravity', 'Arch', 1),
+('Hammer of Gravity', 'Anchor', 1),
 
-('Hawkbrand', 'Melee', 1),
+('Hawkbrand', 'T', 1),
 
-('Heartstealer', 'Melee', 1),
+('Heartstealer', 'T', 1),
+('Heartstealer', 'Anchor', 1),
 
-('Highland Axe', 'Melee', 1),
+('Highland Axe', 'T', 1),
+('Highland Axe', 'Ring', 1),
 
-('Mace', 'Melee', 1),
+('Mace', 'T', 1),
 
-('Mechanized Sawblade', 'Melee', 1),
+('Mechanized Sawblade', 'L', 1),
+('Mechanized Sawblade', 'Anchor', 1),
 
-('Moon Daggers', 'Melee', 1),
+('Moon Daggers', 'T', 1),
+('Moon Daggers', 'A', 1),
 
-('Nameless Blade', 'Melee', 1),
+('Nameless Blade', 'T', 1),
+('Nameless Blade', 'Ring', 1),
 
-('Nightmares Bite', 'Melee', 1),
+('Nightmares Bite', 'T', 1),
 
-('Obsidian Claymore', 'Melee', 1),
+('Obsidian Claymore', 'Anchor', 1),
 
-('Pickaxe', 'Melee', 1),
+('Pickaxe', 'T', 1),
 
-('Resolute Tempest Knife', 'Melee', 1),
+('Resolute Tempest Knife', 'L', 1),
+('Resolute Tempest Knife', 'T', 1),
 
-('Sheer Daggers', 'Melee', 1),
+('Sheer Daggers', 'T', 1),
 
-('Sickles', 'Melee', 1),
+('Sickles', 'T', 1),
 
-('Soul Knife', 'Melee', 1),
+('Soul Knife', 'A', 1),
 
-('Sponge Striker', 'Melee', 1),
+('Sponge Striker', 'Arch', 1),
+('Sponge Striker', 'T', 1),
 
-('Stormlander', 'Melee', 1),
+('Stormlander', 'Arch', 1),
+('Stormlander', 'Anchor', 1),
 
-('Suns Grace', 'Melee', 1),
+('Suns Grace', 'T', 1),
+('Suns Grace', 'Ring', 1),
 
-('Swift Striker', 'Melee', 1),
+('Swift Striker', 'L', 1),
+('Swift Striker', 'T', 1),
 
-('Sword', 'Melee', 1),
+('Sword', 'T', 1),
 
-('Tempest Knife', 'Melee', 1),
+('Tempest Knife', 'L', 1),
 
-('The Beginning and The End', 'Melee', 1),
+('The Beginning and The End', 'Arch', 1),
+('The Beginning and The End', 'Ring', 1),
 
-('The Last Laugh', 'Melee', 1),
+('The Last Laugh', 'Arch', 1),
+('The Last Laugh', 'T', 1),
 
-('The Starless Night', 'Melee', 1),
+('The Starless Night', 'Anchor', 1),
+('The Starless Night', 'T', 1),
 
-('Truthseeker', 'Melee', 1),
+('Truthseeker', 'A', 1),
+('Truthseeker', 'T', 1),
 
-('Venom Glave', 'Melee', 1),
+('Venom Glave', 'Arch', 1),
+('Venom Glave', 'Ring', 1),
 
-('Vine Whip', 'Melee', 1),
+('Vine Whip', 'T', 1),
+('Vine Whip', 'Ring', 1),
 
-('Void Touched Blades', 'Melee', 1),
+('Void Touched Blades', 'Ring', 1),
 
-('Whip', 'Melee', 1),
+('Whip', 'Ring', 1),
 
-('Gauntlets', 'Melee', 1),
+('Gauntlets', 'T', 1),
 
-('Fighters Bindings', 'Melee', 1),
+('Fighters Bindings', 'L', 1),
+('Fighters Bindings', 'T', 1),
 
-('Maulers', 'Melee', 1),
+('Maulers', 'L', 1),
+('Maulers', 'T', 1),
 
-('Soul Fists', 'Melee', 1),
+('Soul Fists', 'T', 1),
+('Soul Fists', 'A', 1),
 
-('Soul Scythe', 'Melee', 1),
+('Soul Scythe', 'A', 1),
 
-('Frost Scythe', 'Melee', 1),
+('Frost Scythe', 'A', 1),
+('Frost Scythe', 'Ring', 1),
 
-('Jailors Scythe', 'Melee', 1),
+('Jailors Scythe', 'A', 1),
+('Jailors Scythe', 'Arch', 1),
 
-('Katana', 'Melee', 1),
+('Katana', 'T', 1),
 
-('Dark Katana', 'Melee', 1),
+('Dark Katana', 'Arch', 1),
+('Dark Katana', 'T', 1),
 
-('Masters Katana', 'Melee', 1),
+('Masters Katana', 'T', 1),
 
-('Double Axe', 'Melee', 1),
+('Double Axe', 'T', 1),
+('Double Axe', 'Anchor', 1),
 
-('Cursed Axe', 'Melee', 1),
+('Cursed Axe', 'Arch', 1),
+('Cursed Axe', 'T', 1),
+('Cursed Axe', 'Anchor', 1),
 
-('Whirlwind', 'Melee', 1),
+('Whirlwind', 'Arch', 1),
+('Whirlwind', 'T', 1),
+('Whirlwind', 'Anchor', 1),
 
-('Spear', 'Melee', 1),
+('Spear', 'Ring', 1),
 
-('Fortune Spear', 'Melee', 1),
+('Fortune Spear', 'Ring', 1),
 
-('Whispering Spear', 'Melee', 1),
+('Whispering Spear', 'T', 1),
+('Whispering Spear', 'Ring', 1),
 
-('Rapier', 'Melee', 1),
+('Rapier', 'T', 1),
+('Rapier', 'Branch', 1),
 
-('Bee Stinger', 'Melee', 1),
+('Bee Stinger', 'T', 1),
+('Bee Stinger', 'Branch', 1),
+('Bee Stinger', 'Totem', 1),
 
-('Freezing Foil', 'Melee', 1),
+('Freezing Foil', 'T', 1),
+('Freezing Foil', 'Branch', 1),
+('Freezing Foil', 'Ring', 1),
 
-('Sinister Sword', 'Melee', 1),
+('Sinister Sword', 'T', 1),
 
-('Frost Slayer', 'Melee', 1),
+('Frost Slayer', 'T', 1),
+('Frost Slayer', 'Anchor', 1),
 
-('Sparkler', 'Melee', 1),
+('Sparkler', 'L', 1),
+('Sparkler', 'T', 1),
 
-('Skull Scythe', 'Melee', 1),
+('Skull Scythe', 'A', 1),
+('Skull Scythe', 'Ring', 1),
 
-('Crackling Broom', 'Melee', 1),
+('Crackling Broom', 'T', 1),
+('Crackling Broom', 'Ring', 1),
 
-('Bonehead Hammer', 'Melee', 1),
+('Bonehead Hammer', 'Arch', 1),
+('Bonehead Hammer', 'Anchor', 1),
 
-('Spine-Chill Spear', 'Melee', 1),
+('Spine-Chill Spear', 'Ring', 1),
 
 -- Ranged Weapons
 ('Ancient Bow', 'Ranged', 1),
