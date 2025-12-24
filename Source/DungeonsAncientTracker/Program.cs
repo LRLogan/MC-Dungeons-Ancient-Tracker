@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Data.Sqlite;
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using System.Data;
 using System.Linq;
 using System.Text.Json.Nodes;
-using MySql.Data.MySqlClient;
-using System.Data;
 
 /*
  * Personal Proj developed by Logan Larrondo
@@ -11,50 +12,48 @@ using System.Data;
 
 namespace DungeonsAncientTracker
 {
-    public enum Rune
-    {
-        Arch,
-        L,
-        T,
-        A,
-        Branch,
-        Shield,
-        Ring,
-        Anchor,
-        Totem
-    }
-
-    public enum ItemType
-    {
-        Melee,
-        Ranged,
-        Armor,
-        Artifact
-    }
-
     internal class Program
     {
         static void Main(string[] args)
         {
-            MySqlConnection sqlConnection = new MySqlConnection();
-            MySqlCommand sqlCmd = new MySqlCommand();
-            DataTable dataTable = new DataTable();
-            MySqlDataAdapter adapter;
-            MySqlDataReader reader;
-            DataSet ds = new DataSet();
-            string sqlQuery, server = "localhost", username = "root", password = "12345", dataBase = "membership";
+            // Setting up the DB
+            string dbPath = DatabaseManager.GetDatabasePath();
+            using var connection = DatabaseManager.OpenConnection(dbPath);
 
-            // Fine loading / saving
-            string filePath = "../../";
-            string json = File.ReadAllText(filePath);
-             
-            // Getting existing data
-            if(File.Exists(filePath))
+            DatabaseManager.InitializeDatabase(connection);
+
+            // Actual user input loop
+            RunUserLoop(connection);
+        }
+
+        /// <summary>
+        /// Main user input loop
+        /// </summary>
+        /// <param name="connection"></param>
+        static void RunUserLoop(SqliteConnection connection)
+        {
+            Console.WriteLine("Database ready. Type 'help' for commands.");
+
+            while (true)
             {
-                ProgramData jsonData = JsonConvert.DeserializeObject<ProgramData>(json);
+                Console.Write("> ");
+                var input = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(input))
+                    continue;
+
+                if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                try
+                {
+                    CommandDispatcher.Dispatch(input, connection);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
-
-
         }
     }
 }
