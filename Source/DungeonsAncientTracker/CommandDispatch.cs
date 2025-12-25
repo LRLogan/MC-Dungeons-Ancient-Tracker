@@ -30,6 +30,10 @@ namespace DungeonsAncientTracker
                             ListMaps(connection);
                             break;
 
+                        case "runes":
+                            ListRunes(connection);
+                            break;
+
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
                                 $"\nType 'help' for list of Available commands");
@@ -72,6 +76,8 @@ namespace DungeonsAncientTracker
             Console.WriteLine("\n--- Help is here! ---\n");
             Console.WriteLine("Available commands:");
             Console.WriteLine("list maps");
+            Console.WriteLine("list runes");
+            Console.WriteLine("\nOther resources:");
         }
 
         #region Commands
@@ -81,23 +87,70 @@ namespace DungeonsAncientTracker
             // Actual SQL command
             string sql = 
                 "SELECT mapName, dlc " +
+                "FROM Maps " +
+                "ORDER BY mapName ASC;";
+
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = sql;
+
+            // Reads back the output of the command one tuple at a time
+            // The data reader will essentially store the entire output object of the SQL command like if it were being called in SQL terminal
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                // Checking for null value
+                object DLCValue = reader["dlc"];
+                if (DLCValue == DBNull.Value)
+                {
+                    Console.WriteLine(
+                        $"MAP: {reader["mapName"]}"
+                    );
+                }
+                else
+                {
+                    Console.WriteLine(
+                        $"MAP: {reader["mapName"]}\t-> \tDLC: {reader["dlc"]}"
+                    );
+                }
+            }
+        }
+
+        private static void ListAncients(SqliteConnection connection)
+        {
+            string sql =
+                "SELECT mapName, dlc " +
                 "FROM Maps";
 
             using var cmd = connection.CreateCommand();
             cmd.CommandText = sql;
 
-            // Reads back the output of the command
-            // The data reader will essentially store the entire output object of the SQL command like if it were being called in SQL terminal
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                Console.WriteLine(
-                    $"{reader["mapName"]} ({reader["dlc"]})"
-                );
+                
             }
         }
 
+        private static void ListItems(SqliteConnection connection)
+        {
 
+        }
+
+        private static void ListRunes(SqliteConnection connection)
+        {
+            string sql =
+                "SELECT runeName " +
+                "FROM Rune";
+
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = sql;
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine($"RUNE: {reader["runeName"]}");
+            }
+        }
 
 
         #endregion

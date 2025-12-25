@@ -27,23 +27,6 @@ namespace DungeonsAncientTracker
 
             DatabaseManager.InitializeDatabase(connection);
 
-            //Console.WriteLine($"Is new DB: {isNewDatabase}");
-            using var cmd = connection.CreateCommand();
-            cmd.CommandText = @"
-                SELECT name, type
-                FROM sqlite_master
-                WHERE type = 'table';
-            ";
-
-            using var reader = cmd.ExecuteReader();
-            Console.WriteLine("Tables in database:");
-
-            while (reader.Read())
-            {
-                Console.WriteLine(reader["name"]);
-            }
-
-
             // Actual user input loop
             RunUserLoop(connection);
         }
@@ -54,7 +37,8 @@ namespace DungeonsAncientTracker
         /// <param name="connection"></param>
         static void RunUserLoop(SqliteConnection connection)
         {
-            Console.WriteLine("Database ready. Type 'help' for commands.");
+            Console.WriteLine("Welcome to MC Dungeons Ancient Helper!" +
+                "\nDatabase ready. Type 'help' for a list of commands and other help.\n");
 
             while (true)
             {
@@ -75,6 +59,8 @@ namespace DungeonsAncientTracker
                 {
                     Console.WriteLine($"Error: {ex.Message}");
                 }
+
+                Console.WriteLine();
             }
         }
     }
