@@ -31,7 +31,8 @@ namespace DungeonsAncientTracker
                             break;
 
                         default:
-                            Console.WriteLine($"Unknown command '{inputParts[1]}'. \nType 'help' for list of Available commands");
+                            Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
+                                $"\nType 'help' for list of Available commands");
                             break;
                     }
                     break;
@@ -40,19 +41,25 @@ namespace DungeonsAncientTracker
                 case "get":
                     switch (inputParts[1])
                     {
-                        case "maps":
+                        case "map":
 
                             break;
 
                         default:
-                            Console.WriteLine($"Unknown command '{inputParts[1]}'. \nType 'help' for list of Available commands");
+                            Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
+                                $"\nType 'help' for list of Available commands");
                             break;
                     }
                     break;
 
+                case "help":
+                    PrintHelp();
+                    break;
+
                 // Main case default
                 default:
-                    Console.WriteLine($"Unknown command '{inputParts[0]}'. \nType 'help' for list of Available commands");
+                    Console.WriteLine($"Unknown command '{inputParts[0]}'. " +
+                        $"\nType 'help' for list of Available commands");
                     break;
             }
         }
@@ -60,7 +67,7 @@ namespace DungeonsAncientTracker
         /// <summary>
         /// If the user types help this will display the list of commands
         /// </summary>
-        private static void PrintHelpe()
+        private static void PrintHelp()
         {
             Console.WriteLine("\n--- Help is here! ---\n");
             Console.WriteLine("Available commands:");

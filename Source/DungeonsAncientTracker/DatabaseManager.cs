@@ -10,7 +10,7 @@ namespace DungeonsAncientTracker
 {
     internal static class DatabaseManager
     {
-        private const string DbFileName = "game.db";
+        private const string DbFileName = "mainDB.db";
 
         /// <summary>
         /// Gets the full path for the database (this could be done without a method but it is used to keep things modular)
@@ -20,6 +20,7 @@ namespace DungeonsAncientTracker
         {
             return Path.Combine(
                 AppContext.BaseDirectory,
+                "../../../Data/",
                 DbFileName
             );
         }
@@ -51,14 +52,8 @@ namespace DungeonsAncientTracker
         /// <param name="connection"></param>
         public static void InitializeDatabase(SqliteConnection connection)
         {
-            string dbPath = connection.DataSource;
-            bool isNewDatabase = !File.Exists(dbPath);
-
-            if (!isNewDatabase)
-                return;
-
-            ExecuteSqlScript(connection, "Data.schema.sql");
-            ExecuteSqlScript(connection, "Data.insertData.sql");
+            ExecuteSqlScript(connection, "schema.sql");
+            ExecuteSqlScript(connection, "insertData.sql");
         }
 
         /// <summary>
@@ -70,13 +65,18 @@ namespace DungeonsAncientTracker
             SqliteConnection connection,
             string resourceName)
         {
+            var fullName =
+        $"DungeonsAncientTracker.Data.{resourceName}";
+
             using var stream =
                 typeof(DatabaseManager)
                     .Assembly
-                    .GetManifestResourceStream(resourceName);
+                    .GetManifestResourceStream(fullName)
+                ?? throw new InvalidOperationException(
+                    $"Embedded resource not found: {fullName}");
 
-            using StreamReader reader = new StreamReader(stream);
-            string sql = reader.ReadToEnd();
+            using var reader = new StreamReader(stream);
+            var sql = reader.ReadToEnd();
 
             using var cmd = connection.CreateCommand();
             cmd.CommandText = sql;

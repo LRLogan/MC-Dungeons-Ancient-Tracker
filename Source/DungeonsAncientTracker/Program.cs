@@ -18,9 +18,31 @@ namespace DungeonsAncientTracker
         {
             // Setting up the DB
             string dbPath = DatabaseManager.GetDatabasePath();
+            bool isNewDatabase = !File.Exists(dbPath);
+
+            // Delete old DB if it exists (Optional, for clean run)
+            if (File.Exists(dbPath)) File.Delete(dbPath);
+
             using var connection = DatabaseManager.OpenConnection(dbPath);
 
             DatabaseManager.InitializeDatabase(connection);
+
+            //Console.WriteLine($"Is new DB: {isNewDatabase}");
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = @"
+                SELECT name, type
+                FROM sqlite_master
+                WHERE type = 'table';
+            ";
+
+            using var reader = cmd.ExecuteReader();
+            Console.WriteLine("Tables in database:");
+
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["name"]);
+            }
+
 
             // Actual user input loop
             RunUserLoop(connection);
@@ -47,7 +69,7 @@ namespace DungeonsAncientTracker
 
                 try
                 {
-                    CommandDispatcher.Dispatch(input, connection);
+                    CommandDispatch.Dispatch(input, connection);
                 }
                 catch (Exception ex)
                 {
