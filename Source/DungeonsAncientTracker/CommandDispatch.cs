@@ -13,6 +13,7 @@ namespace DungeonsAncientTracker
     internal static class CommandDispatch
     {
         private const int formatSpaceSize = -25;
+        private const int formatSpaceSizeSmall = -15;
 
         public static void Dispatch(string input, SqliteConnection connection)
         {
@@ -60,6 +61,11 @@ namespace DungeonsAncientTracker
                             GetMapFromItem(connection, fullItemName);
                             break;
 
+                        case "ancient":
+                            string fullAncientName = GetRemainingArgument(inputParts, 2);
+                            GetAncientReport(connection, fullAncientName);
+                            break;
+
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
                                 $"\nType 'help' for list of Available commands");
@@ -90,6 +96,8 @@ namespace DungeonsAncientTracker
             Console.WriteLine("list maps");
             Console.WriteLine("list runes");
             Console.WriteLine("list items");
+            Console.WriteLine("get map {Item Name}");
+            Console.WriteLine("get ancient {Ancient Name}");
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
         }
@@ -242,6 +250,140 @@ namespace DungeonsAncientTracker
                     Console.WriteLine(
                         $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
                     );
+                }
+            }
+        }
+
+        private static void GetAncientReport(SqliteConnection connection, string ancient)
+        {
+            // --- First query ---
+            string sql =
+                "SELECT a.ancientName, a.mobType, ar.runeName, ar.runeQuantity " +
+                "FROM Ancient a " +
+                "JOIN AncientRune ar USING (ancientName) " +
+                "WHERE a.ancientName = @ancient " +
+                "ORDER BY ar.runeName ASC;";
+
+            Console.WriteLine($"Showing full report for Ancient: {ancient}");
+
+            var runeRows = new List<(string Rune, int Amount)>();
+            List<string?> loot = new List<string?>();
+            string? mobType = null;
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                using var reader = cmd.ExecuteReader();
+
+                // Reading in all data to store for easer formatting
+                while (reader.Read())
+                {
+                    if (mobType == null)
+                    {
+                        mobType = reader["mobType"].ToString();
+                    }
+                    runeRows.Add((
+                        reader.GetString(2),
+                        reader.GetInt32(3)
+                    ));
+                }
+            }
+
+            // Query 1 part 2 (yes technically query 2)
+            sql =
+                "SELECT a.ancientName, " +
+                "al.itemName AS lootItem " +
+                "FROM Ancient a " +
+                "LEFT JOIN AncientLoot al USING (ancientName) " +
+                "WHERE a.ancientName = @ancient " +
+                "ORDER BY al.itemName ASC;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    loot.Add(reader["lootItem"].ToString());
+                }
+            }
+
+            // Query 1 output
+            Console.WriteLine($"Mob type: {mobType}\n");
+            Console.WriteLine("Runes required:");
+            foreach (var r in runeRows)
+            {
+                Console.WriteLine($"{r.Rune, formatSpaceSizeSmall} x{r.Amount}");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("\nLoot droped:");
+            foreach(string? item in loot)
+            {
+                Console.WriteLine(item);
+            }
+
+            // --- Second query ---
+            sql =
+                "SELECT al.itemName, m.mapName, m.dlc " +
+                "FROM AncientLoot al " +
+                "JOIN MapItems mi USING (itemName) " +
+                "JOIN Maps m USING (mapName) " +
+                "WHERE al.ancientName = @ancient " +
+                "ORDER BY al.itemName ASC, m.mapName ASC;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Checking for null value
+                    object DLCValue = reader["dlc"];
+                    if (DLCValue == DBNull.Value)
+                    {
+                        Console.WriteLine(
+                            $"ITEM: {reader["itemName"],formatSpaceSize}-> " +
+                            $"MAP: {reader["mapName"]}"
+                        );
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                             $"ITEM: {reader["itemName"],formatSpaceSize}-> " +
+                            $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
+                        );
+                    }
+                }
+            }
+
+            // --- Third query ---
+            sql =
+                "SELECT m.mapName, COUNT(*) AS occurrenceCount " +
+                "FROM AncientLoot al " +
+                "JOIN MapItems mi USING (itemName) " +
+                "JOIN Maps m USING (mapName) " +
+                "WHERE al.ancientName = @ancient " +
+                "GROUP BY m.mapName " +
+                "ORDER BY occurrenceCount DESC, m.mapName ASC;";
+
+            Console.WriteLine("Maps to find these items: ");
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall}, x{reader["occurrenceCount"]}");
                 }
             }
         }

@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS Items;
 CREATE TABLE Items (
     itemName TEXT NOT NULL PRIMARY KEY,
     itemType TEXT NOT NULL,
+    isUnique INTEGER NOT NULL DEFAULT 0, -- Bool for isUnique 0 false, 1 true
     dlc TEXT
 );
 
