@@ -12,6 +12,8 @@ namespace DungeonsAncientTracker
     /// </summary>
     internal static class CommandDispatch
     {
+        private const int formatSpaceSize = -25;
+
         public static void Dispatch(string input, SqliteConnection connection)
         {
             string[] inputParts = input.Split(
@@ -36,6 +38,10 @@ namespace DungeonsAncientTracker
 
                         case "ancients":
                             ListAncients(connection);
+                            break;
+
+                        case "items":
+                            ListItems(connection); 
                             break;
 
                         default:
@@ -79,8 +85,10 @@ namespace DungeonsAncientTracker
         {
             Console.WriteLine("\n--- Help is here! ---\n");
             Console.WriteLine("Available database commands:");
+            Console.WriteLine("list ancients");
             Console.WriteLine("list maps");
             Console.WriteLine("list runes");
+            Console.WriteLine("list items");
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
         }
@@ -114,7 +122,7 @@ namespace DungeonsAncientTracker
                 else
                 {
                     Console.WriteLine(
-                        $"MAP: {reader["mapName"], -25}-> DLC: {reader["dlc"]}"
+                        $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
                     );
                 }
             }
@@ -134,14 +142,28 @@ namespace DungeonsAncientTracker
             while (reader.Read())
             {
                 Console.WriteLine(
-                        $"ANCIENT: {reader["ancientName"], -25}-> MOB: {reader["mobType"]}"
+                        $"ANCIENT: {reader["ancientName"], formatSpaceSize}-> MOB: {reader["mobType"]}"
                     );
             }
         }
 
         private static void ListItems(SqliteConnection connection)
         {
+            string sql =
+                "SELECT itemName, itemType, dlc " +
+                "FROM Items " +
+                "ORDER BY itemName ASC;";
 
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = sql;
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine($"ITEM: {reader["itemName"], formatSpaceSize}" +
+                    $"-> TYPE: {reader["itemType"], formatSpaceSize}" +
+                    $"-> DLC: {reader["dlc"]}");
+            }
         }
 
         private static void ListRunes(SqliteConnection connection)
