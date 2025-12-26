@@ -39,7 +39,7 @@ namespace DungeonsAncientTracker
         {
             Console.WriteLine("Welcome to MC Dungeons Ancient Helper!" +
                 "\nDatabase ready. Type 'help' for a list of commands and other help." +
-                "\nType 'exit' to exit program.");
+                "\nType 'exit' to exit program.\n");
 
             while (true)
             {

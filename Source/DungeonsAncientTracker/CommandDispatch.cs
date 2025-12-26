@@ -56,7 +56,8 @@ namespace DungeonsAncientTracker
                     switch (inputParts[1])
                     {
                         case "map":
-
+                            string fullItemName = GetRemainingArgument(inputParts, 2);
+                            GetMapFromItem(connection, fullItemName);
                             break;
 
                         default:
@@ -92,6 +93,20 @@ namespace DungeonsAncientTracker
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
         }
+
+        /// <summary>
+        /// Helper function to join the remaining parts of the input after initial seperation
+        /// </summary>
+        /// <param name="parts">array of broken strings</param>
+        /// <param name="startIndex"></param>
+        /// <returns></returns>
+        static string GetRemainingArgument(string[] parts, int startIndex)
+        {
+            return parts.Length > startIndex
+                ? string.Join(' ', parts.Skip(startIndex))
+                : string.Empty;
+        }
+
 
         #region Commands
 
@@ -160,9 +175,20 @@ namespace DungeonsAncientTracker
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                Console.WriteLine($"ITEM: {reader["itemName"], formatSpaceSize}" +
-                    $"-> TYPE: {reader["itemType"], formatSpaceSize}" +
-                    $"-> DLC: {reader["dlc"]}");
+                object DLCValue = reader["dlc"];
+                if (DLCValue == DBNull.Value)
+                {
+                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
+                    $"-> TYPE: {reader["itemType"],formatSpaceSize}" 
+                    );
+                }
+                else
+                {
+                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
+                    $"-> TYPE: {reader["itemType"],formatSpaceSize}" +
+                    $"-> DLC: {reader["dlc"]}"
+                    );
+                }
             }
         }
 
@@ -170,7 +196,8 @@ namespace DungeonsAncientTracker
         {
             string sql =
                 "SELECT runeName " +
-                "FROM Rune";
+                "FROM Rune " +
+                "ORDER BY runeName ASC;";
 
             using var cmd = connection.CreateCommand();
             cmd.CommandText = sql;
@@ -182,6 +209,42 @@ namespace DungeonsAncientTracker
             }
         }
 
+        private static void GetMapFromItem(SqliteConnection connection, string item)
+        {
+            string sql =
+                "SELECT m.mapName, m.dlc, i.itemName " +
+                "FROM MapItems mi " +
+                "JOIN Maps m USING (mapName) " +
+                "JOIN Items i USING (itemName) " +
+                "WHERE mi.itemName = @item " +
+                "ORDER BY m.mapName ASC;";
+
+            using var cmd = connection.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@item", item);
+
+            using var reader = cmd.ExecuteReader();
+            Console.WriteLine($"Showing map results for item: {item}");
+
+            // As of now this is the same loop from List Maps
+            while (reader.Read())
+            {
+                // Checking for null value
+                object DLCValue = reader["dlc"];
+                if (DLCValue == DBNull.Value)
+                {
+                    Console.WriteLine(
+                        $"MAP: {reader["mapName"]}"
+                    );
+                }
+                else
+                {
+                    Console.WriteLine(
+                        $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
+                    );
+                }
+            }
+        }
 
         #endregion
     }
