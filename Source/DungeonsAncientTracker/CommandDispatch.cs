@@ -34,6 +34,10 @@ namespace DungeonsAncientTracker
                             ListRunes(connection);
                             break;
 
+                        case "ancients":
+                            ListAncients(connection);
+                            break;
+
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
                                 $"\nType 'help' for list of Available commands");
@@ -74,10 +78,11 @@ namespace DungeonsAncientTracker
         private static void PrintHelp()
         {
             Console.WriteLine("\n--- Help is here! ---\n");
-            Console.WriteLine("Available commands:");
+            Console.WriteLine("Available database commands:");
             Console.WriteLine("list maps");
             Console.WriteLine("list runes");
             Console.WriteLine("\nOther resources:");
+            Console.WriteLine("Type 'exit' to exit program");
         }
 
         #region Commands
@@ -109,7 +114,7 @@ namespace DungeonsAncientTracker
                 else
                 {
                     Console.WriteLine(
-                        $"MAP: {reader["mapName"]}\t-> \tDLC: {reader["dlc"]}"
+                        $"MAP: {reader["mapName"], -25}-> DLC: {reader["dlc"]}"
                     );
                 }
             }
@@ -118,8 +123,9 @@ namespace DungeonsAncientTracker
         private static void ListAncients(SqliteConnection connection)
         {
             string sql =
-                "SELECT mapName, dlc " +
-                "FROM Maps";
+                "SELECT ancientName, mobType " +
+                "FROM Ancient " +
+                "ORDER BY ancientName ASC;";
 
             using var cmd = connection.CreateCommand();
             cmd.CommandText = sql;
@@ -127,7 +133,9 @@ namespace DungeonsAncientTracker
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                
+                Console.WriteLine(
+                        $"ANCIENT: {reader["ancientName"], -25}-> MOB: {reader["mobType"]}"
+                    );
             }
         }
 

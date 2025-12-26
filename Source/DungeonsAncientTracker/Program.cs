@@ -38,7 +38,8 @@ namespace DungeonsAncientTracker
         static void RunUserLoop(SqliteConnection connection)
         {
             Console.WriteLine("Welcome to MC Dungeons Ancient Helper!" +
-                "\nDatabase ready. Type 'help' for a list of commands and other help.\n");
+                "\nDatabase ready. Type 'help' for a list of commands and other help." +
+                "\nType 'exit' to exit program.");
 
             while (true)
             {
