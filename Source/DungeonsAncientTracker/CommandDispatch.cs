@@ -389,5 +389,15 @@ namespace DungeonsAncientTracker
         }
 
         #endregion
+
+        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes)
+        {
+            string[] typeOrder = { "melee", "ranged", "armor", "artifact" };
+            Dictionary<string, List<ItemCanidate>> itemsByType = new();
+
+
+
+            return new List<ItemCanidate> { };  // TEMP
+        }
     }
 }
