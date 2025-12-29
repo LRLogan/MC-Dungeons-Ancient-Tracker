@@ -390,14 +390,70 @@ namespace DungeonsAncientTracker
 
         #endregion
 
-        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes)
+        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string> allowedDLCs, bool excludeUnique)
         {
             string[] typeOrder = { "melee", "ranged", "armor", "artifact" };
             Dictionary<string, List<ItemCanidate>> itemsByType = new();
+            List<ItemCanidate> selectedItems = new();
+            ItemCanidate bestItem = null;
+            float bestCost = float.MinValue;
+            float curItemCost = 0;
 
+            // Filtering before algo to optimize 
+            foreach(ItemCanidate item in canidateSet)
+            {
+                if (!CheckDlc(item.dlc, allowedDLCs))
+                    continue;
+                if (excludeUnique && item.isUnique)
+                    continue;
+                if (!CheckRunes(item.runeCoverage, remainingRunes))
+                    continue;
+                itemsByType[item.type].Add(item);
+            }
 
+            // Main section of the algorithm
+            // Iterating through each item type to get the best one for each
+            foreach (string type in typeOrder)
+            {
+                if (!itemsByType.ContainsKey(type))
+                    continue;
+                bestItem = null;
+                bestCost = float.MinValue;
 
-            return new List<ItemCanidate> { };  // TEMP
+                foreach(ItemCanidate item in itemsByType[type])
+                {
+                    curItemCost = CalculateHeuristic(item, remainingRunes);
+
+                    if (curItemCost > bestCost)
+                    {
+                        bestCost = curItemCost;
+                        bestItem = item;
+                    }
+                }
+
+                if (bestItem != null)
+                {
+                    selectedItems.Add(bestItem);
+                    //Update remaining runes here since an item was chosen
+                }
+            }
+
+            return selectedItems;
+        }
+
+        private static float CalculateHeuristic(ItemCanidate item, Dictionary<string, int> remainingRunes)
+        {
+            return 0f;
+        }
+
+        private static bool CheckRunes(Dictionary<string, int> canidateRunes, Dictionary<string, int> objRunes)
+        {
+            return false;
+        }
+
+        private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
+        {
+            return false;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DungeonsAncientTracker
         public string? dlc;
         public bool isUnique;
 
-        public Dictionary<string, int> runeCoverage { get; init; }
+        public Dictionary<string, int> runeCoverage;
 
         public ItemCanidate(string name, string type, string? dlc, bool isUnique)
         {
@@ -24,6 +24,7 @@ namespace DungeonsAncientTracker
             this.type = type;
             this.dlc = dlc;
             this.isUnique = isUnique;
+            runeCoverage = new Dictionary<string, int>();
         }
 
         public int TotalRuneCount => runeCoverage.Values.Sum();
