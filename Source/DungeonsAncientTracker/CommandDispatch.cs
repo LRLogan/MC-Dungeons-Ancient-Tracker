@@ -326,6 +326,7 @@ namespace DungeonsAncientTracker
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine();
 
             // --- Second query ---
             sql =
@@ -340,6 +341,8 @@ namespace DungeonsAncientTracker
             {
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                Console.WriteLine("Reccommended items to use for runes: ");
 
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -362,6 +365,7 @@ namespace DungeonsAncientTracker
                     }
                 }
             }
+            Console.WriteLine();
 
             // --- Third query ---
             sql =
@@ -373,7 +377,7 @@ namespace DungeonsAncientTracker
                 "GROUP BY m.mapName " +
                 "ORDER BY occurrenceCount DESC, m.mapName ASC;";
 
-            Console.WriteLine("Maps to find these items: ");
+            Console.WriteLine("Condenced map count: ");
 
             using (var cmd = connection.CreateCommand())
             {
@@ -434,7 +438,19 @@ namespace DungeonsAncientTracker
                 if (bestItem != null)
                 {
                     selectedItems.Add(bestItem);
-                    //Update remaining runes here since an item was chosen
+
+                    //Update remaining runes since an item was chosen
+                    foreach(var rune in bestItem.runeCoverage)
+                    {
+                        if(remainingRunes.ContainsKey(rune.Key))
+                        {
+                            remainingRunes[rune.Key] -= rune.Value;
+
+                            // If fully satisfied
+                            if (remainingRunes[rune.Key] <= 0)
+                                remainingRunes.Remove(rune.Key);
+                        }
+                    }
                 }
             }
 
@@ -443,17 +459,48 @@ namespace DungeonsAncientTracker
 
         private static float CalculateHeuristic(ItemCanidate item, Dictionary<string, int> remainingRunes)
         {
-            return 0f;
+            float score = 0;
+            int excessRunes = 0;
+
+            foreach(var rune in item.runeCoverage)
+            {
+                // Checks if teh rune'n name exists in the required list
+                if (remainingRunes.ContainsKey(rune.Key))
+                {
+                    // Min to enforce the constraint that only runes that can provide something will be counted
+                    score += MathF.Min(rune.Value, remainingRunes[rune.Key]) * 3;
+                }
+                else excessRunes++;
+            }
+            score -= excessRunes * 0.5f;
+
+            return score;
         }
 
         private static bool CheckRunes(Dictionary<string, int> canidateRunes, Dictionary<string, int> objRunes)
         {
+            foreach(var rune in canidateRunes)
+            {
+                if (objRunes.ContainsKey(rune.Key))
+                    return true;
+            }
+
             return false;
         }
 
         private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
         {
-            return false;
+            if (allowedDLCs.Count() <= 0)
+                return true;
+
+            bool containsDlc = itemDlc == null;
+            foreach(string dlc in allowedDLCs)
+            {
+                if(dlc == itemDlc)
+                    containsDlc = true;
+            }
+
+            return containsDlc;
         }
     }
 }
