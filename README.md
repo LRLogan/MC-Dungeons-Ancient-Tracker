@@ -1,4 +1,4 @@
-# MC-Dungeons-Ancient-Tracker 
+# MC-Dungeons-Ancient-Tracker CLI
 Repo for my MC-Dungeons-Ancient-Tracker personal project 
 - Created by Logan Larrondo
 
