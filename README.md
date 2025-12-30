@@ -88,8 +88,9 @@ Output will indicate that:
 
 Rune names have been simplified to be easier to remember and type.
 
-Original rune names:
-![alt text](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/Images/AncientRunesActualNames.png "Actual rune names")
+Original rune names: 
+
+![alt text](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AncientRuneActualNames.png "Actual rune names")
 
 # Command Reference
 
