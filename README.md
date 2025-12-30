@@ -97,12 +97,11 @@ Rune names have been simplified to be easier to remember and type.
 
 | Rune | Image | Rune | Image |
 |-----:|:------|-----:|:------|
-| **A** | ![A rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ARune.png) |
-| **Anchor** | ![Anchor rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AnchorRune.png) |
+| **A** | ![A rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ARune.png) | **Anchor** | ![Anchor rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AnchorRune.png) |
 | **Arch** | ![Arch rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ArchRune.png) | **Branch** | ![Branch rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/BranchRune.png) |
 | **L** | ![L rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/LRune.png) | **Ring** | ![Ring rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/RingRune.png) |
 | **Shield** | ![Shield rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ShieldRune.png) | **T** | ![T rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TRune.png) |
-| **Totem** | ![Totem rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TotemRunes.png) |  |  |
+| **Totem** | ![Totem rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TotemRune.png) |  |  |
 
 
 
