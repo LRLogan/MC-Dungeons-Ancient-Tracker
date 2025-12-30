@@ -4,11 +4,14 @@ Repo for my MC-Dungeons-Ancient-Tracker personal project
 
 # Installation and Usage
 ### Installation
-
+- Navigate to the Releases section of this GitHub page
+- Select the desired release and download the zip folder
+  - ( Recommended that you use the most recent release )
 
 ### Running the Application
-
-
+- Extract the zip folder to a location of your choosing
+- Inside that folder you will find a .exe file
+  - Double click on that file to launch the console program
 
 Once launched, the program will enter an interactive command prompt.
 
@@ -16,7 +19,7 @@ Once launched, the program will enter an interactive command prompt.
 
 At any time, type:
 
-help
+`help`
 
 
 This will display available commands and usage hints.
@@ -31,38 +34,35 @@ To ensure consistent parsing and predictable behavior, the application follows s
 
 Capitalize the first and last name
 
-Example: Ancient King
+Example: `Ancient King`
 
-The phrase of the is always lowercase
+The phrase `of the` is always lowercase
 
-Example: Guardian of the Deep
+Example: `Guardian of the Deep`
 
-Apostrophes (') are not allowed in names or commands
+Apostrophes (`'`) are not allowed in names or commands
 
 ### Item names and rune names must be entered exactly as expected unless otherwise stated
 
 Case Sensitivity
 
-get map by item is case sensitive
-
-Other commands are generally case insensitive unless noted
+As a rule of thumb all commands are case sensitive
 
 # Command Syntax
 
 Commands are token-based and parsed left to right
 
-In documentation, {} indicates a mandatory, user-supplied value
+In documentation, `{}` indicates a mandatory, user-supplied value
 
 Do not type the braces themselves
 
 Example:
 
-get map {item name}
-
+`get map {item name}`
 
 Should be entered as:
 
-get map Iron Sword
+`get map Iron Sword`
 
 # Error Feedback
 
@@ -72,16 +72,15 @@ If part of a command is valid, it will be acknowledged
 
 Example:
 
-list usbdgjrgbj
-
+`list usbdgjrgbj`
 
 Output will indicate that:
 
-list was valid
+`list` was valid
 
-usbdgjrgbj was not a recognized subcommand
+`usbdgjrgbj` was not a recognized subcommand
 
-Rune Naming Notes
+# Rune Naming Notes
 
 Rune names have been simplified to be easier to remember and type.
 
@@ -125,11 +124,9 @@ Flags are optional modifiers that alter how certain commands behave. Flags must 
 
 # Roadmap (Planned)
 
-Advanced rune optimization and item selection
+Advanced rune optimization and item selection in core algorithm
 
 Improved recommendation heuristics
-
-Exportable reports
 
 Expanded command flag support
 
