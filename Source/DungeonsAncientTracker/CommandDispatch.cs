@@ -668,11 +668,19 @@ namespace DungeonsAncientTracker
 
         private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
         {
+            // early exit
             if (allowedDLCs == null || itemDlc == null)
                 return true;
             if (allowedDLCs.Count() <= 0)
                 return true;
 
+            // no dlc
+            if (allowedDLCs.Contains("none") && itemDlc == null)
+            {
+                return true;
+            }
+
+            // regular dlc names
             bool containsDlc = itemDlc == null;
             foreach(string dlc in allowedDLCs)
             {
