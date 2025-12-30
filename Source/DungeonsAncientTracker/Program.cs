@@ -16,14 +16,7 @@ namespace DungeonsAncientTracker
     {
         static void Main(string[] args)
         {
-            // Setting up the DB
-            string dbPath = DatabaseManager.GetDatabasePath();
-            bool isNewDatabase = !File.Exists(dbPath);
-
-            // Delete old DB if it exists (Optional, for clean run)
-            if (File.Exists(dbPath)) File.Delete(dbPath);
-
-            using var connection = DatabaseManager.OpenConnection(dbPath);
+            using var connection = DatabaseManager.OpenConnection();
 
             DatabaseManager.InitializeDatabase(connection);
 

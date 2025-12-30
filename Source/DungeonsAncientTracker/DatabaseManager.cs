@@ -30,10 +30,17 @@ namespace DungeonsAncientTracker
         /// </summary>
         /// <param name="dbPath"></param>
         /// <returns></returns>
-        public static SqliteConnection OpenConnection(string dbPath)
+        public static SqliteConnection OpenConnection()
         {
-            SqliteConnection connection = new SqliteConnection(
-                $"Data Source={dbPath}"
+            string baseDir = AppContext.BaseDirectory;
+
+            string dataDir = Path.Combine(baseDir, "Data");
+            Directory.CreateDirectory(dataDir); 
+
+            string dbPath = Path.Combine(dataDir, "ancients.db");
+
+            var connection = new SqliteConnection(
+                $"Data Source={dbPath};Mode=ReadWriteCreate"
             );
 
             connection.Open();
