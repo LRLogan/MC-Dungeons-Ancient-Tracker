@@ -18,11 +18,12 @@ namespace DungeonsAncientTracker
         /// <returns>database path</returns>
         public static string GetDatabasePath()
         {
-            return Path.Combine(
-                AppContext.BaseDirectory,
-                "../../../Data/",
-                DbFileName
-            );
+            string baseDir = AppContext.BaseDirectory;
+
+            string dataDir = Path.Combine(baseDir, "Data");
+            Directory.CreateDirectory(dataDir);
+
+            return Path.Combine(dataDir, "ancients.db");
         }
 
         /// <summary>
@@ -30,26 +31,20 @@ namespace DungeonsAncientTracker
         /// </summary>
         /// <param name="dbPath"></param>
         /// <returns></returns>
-        public static SqliteConnection OpenConnection()
+        public static SqliteConnection OpenConnection(string dbPath)
         {
-            string baseDir = AppContext.BaseDirectory;
-
-            string dataDir = Path.Combine(baseDir, "Data");
-            Directory.CreateDirectory(dataDir); 
-
-            string dbPath = Path.Combine(dataDir, "ancients.db");
-
             var connection = new SqliteConnection(
                 $"Data Source={dbPath};Mode=ReadWriteCreate"
             );
 
             connection.Open();
 
+            
             // Enabeling foreign keys in SQLite as they are not by default
             using var cmd = connection.CreateCommand();
             cmd.CommandText = "PRAGMA foreign_keys = ON;";
             cmd.ExecuteNonQuery();
-
+            
             return connection;
         }
 
@@ -73,7 +68,7 @@ namespace DungeonsAncientTracker
             string resourceName)
         {
             var fullName =
-        $"DungeonsAncientTracker.Data.{resourceName}";
+            $"DungeonsAncientTracker.Data.{resourceName}";
 
             using var stream =
                 typeof(DatabaseManager)

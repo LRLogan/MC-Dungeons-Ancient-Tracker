@@ -16,9 +16,15 @@ namespace DungeonsAncientTracker
     {
         static void Main(string[] args)
         {
-            using var connection = DatabaseManager.OpenConnection();
+            string dbPath = DatabaseManager.GetDatabasePath();
+            bool isNewDb = !File.Exists(dbPath);
 
-            DatabaseManager.InitializeDatabase(connection);
+            using var connection = DatabaseManager.OpenConnection(dbPath);
+
+            if (isNewDb)
+            {
+                DatabaseManager.InitializeDatabase(connection);
+            }
 
             // Actual user input loop
             RunUserLoop(connection);
