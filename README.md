@@ -25,8 +25,13 @@ At any time, type:
 
 `help`
 
-
 This will display available commands and usage hints.
+
+Or type:
+
+`exit`
+
+To close the program
 
 # Conventions
 
