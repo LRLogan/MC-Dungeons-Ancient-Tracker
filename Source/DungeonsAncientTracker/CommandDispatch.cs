@@ -74,9 +74,7 @@ namespace DungeonsAncientTracker
                                 ? flags["-dlc"].Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList()
                                 : null,
                                 flags.ContainsKey("-nu")
-                                ? flags["-nu"] == "true"
-                                    ? true
-                                    : false
+                                ? true
                                 : false
                             );
                             }
@@ -529,7 +527,13 @@ namespace DungeonsAncientTracker
             Console.WriteLine("Reccommended items to use for runes: ");
             foreach(ItemCanidate item in finalItems)
             {
-                Console.WriteLine(item.name);
+                Console.WriteLine($"ITEM: {item.name}");
+                Console.WriteLine("Attached runes:");
+                foreach(var rune in item.runeCoverage)
+                {
+                    Console.WriteLine($"{rune.Key} x {rune.Value}");
+                }
+                Console.WriteLine();
             }
 
             // --- Third query ---
