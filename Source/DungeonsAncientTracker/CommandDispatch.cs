@@ -559,7 +559,7 @@ namespace DungeonsAncientTracker
 
         #endregion
 
-        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string> allowedDLCs, bool excludeUnique)
+        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string>? allowedDLCs, bool excludeUnique)
         {
             string[] typeOrder = { "Melee", "Ranged", "Armor", "Artifact" };
             Dictionary<string, List<ItemCanidate>> itemsByType = new();
@@ -577,7 +577,16 @@ namespace DungeonsAncientTracker
                     continue;
                 if (!CheckRunes(item.runeCoverage, remainingRunes))
                     continue;
-                itemsByType[item.type].Add(item);
+
+                // Ensuring the dict value exists 
+                if (!itemsByType.TryGetValue(item.type, out var list))
+                {
+                    list = new List<ItemCanidate>();
+                    itemsByType[item.type] = list;
+                }
+
+                list.Add(item);
+
             }
 
             // Main section of the algorithm
@@ -629,7 +638,7 @@ namespace DungeonsAncientTracker
 
             foreach(var rune in item.runeCoverage)
             {
-                // Checks if teh rune'n name exists in the required list
+                // Checks if the rune'n name exists in the required list
                 if (remainingRunes.ContainsKey(rune.Key))
                 {
                     // Min to enforce the constraint that only runes that can provide something will be counted
@@ -655,7 +664,9 @@ namespace DungeonsAncientTracker
 
         private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
         {
-            if (allowedDLCs.Count() <= 0 || allowedDLCs == null)
+            if (allowedDLCs == null || itemDlc == null)
+                return true;
+            if (allowedDLCs.Count() <= 0)
                 return true;
 
             bool containsDlc = itemDlc == null;
