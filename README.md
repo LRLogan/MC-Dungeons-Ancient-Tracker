@@ -1,4 +1,4 @@
-# MC-Dungeons-Ancient-Tracker 
+# MC-Dungeons-Ancient-Tracker CLI
 Repo for my MC-Dungeons-Ancient-Tracker personal project 
 - Created by Logan Larrondo
 
@@ -88,35 +88,39 @@ Output will indicate that:
 
 Rune names have been simplified to be easier to remember and type.
 
-Original rune names: 
+### Original rune names: 
 
 ![alt text](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AncientRuneActualNames.png "Actual rune names")
+
+### My rune names:
+### My rune names
+
+| Rune | Image | Rune | Image |
+|-----:|:------|-----:|:------|
+| **A** | ![A rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ARune.png) | **Anchor** | ![Anchor rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AnchorRune.png) |
+| **Arch** | ![Arch rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ArchRune.png) | **Branch** | ![Branch rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/BranchRune.png) |
+| **L** | ![L rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/LRune.png) | **Ring** | ![Ring rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/RingRune.png) |
+| **Shield** | ![Shield rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ShieldRune.png) | **T** | ![T rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TRune.png) |
+| **Totem** | ![Totem rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TotemRune.png) |  |  |
+
+
 
 # Command Reference
 
 The following table summarizes all currently supported commands and their behavior.
 The following commands are currently implemented and available:
 
-| Command               | Description                                                                         |
-| --------------------- | ----------------------------------------------------------------------------------- |
-| `help`                | Displays a list of available commands along with basic usage guidance.              |
-| `list maps`           | Lists all maps currently stored in the database.                                    |
-| `list ancients`       | Lists all known Ancients.                                                           |
-| `list items`          | Lists all items that can be queried or used in recommendations.                     |
-| `list runes`          | Lists all runes and their simplified names.                                         |
-| `get map {item name}` | Returns the map(s) associated with the specified item. Item name is case sensitive. |
-
+| Command               | Description                                                                         | Supported Flags |
+| --------------------- | ----------------------------------------------------------------------------------- |-----------------|
+| `help`                | Displays a list of available commands along with basic usage guidance.              | *(none)*        |
+| `list maps`           | Lists all maps currently stored in the database.                                    | *(none)*        | 
+| `list ancients`       | Lists all known Ancients.                                                           | *(none)*        |
+| `list items`          | Lists all items that can be queried or used in recommendations.                     | *(none)*        |
+| `list runes`          | Lists all runes and their simplified names.                                         | *(none)*        |   
+| `get map {item name}` | Returns the map(s) associated with the specified item. Item name is case sensitive. | `-dlc`, `-nu`   |
 
 
 Each command outputs all known entries of the requested type.
-
-## Query Commands
-get map {item name}
-
-
-Returns the map(s) associated with the specified item.
-
-Note: Item names for this command are case sensitive.
 
 # Command Flag Reference
 
