@@ -120,16 +120,7 @@ The following commands are currently implemented and available:
 | `get map {item name}` | Returns the map(s) associated with the specified item. Item name is case sensitive. |
 
 
-
 Each command outputs all known entries of the requested type.
-
-## Query Commands
-get map {item name}
-
-
-Returns the map(s) associated with the specified item.
-
-Note: Item names for this command are case sensitive.
 
 # Command Flag Reference
 
