@@ -15,6 +15,7 @@ namespace DungeonsAncientTracker
         public string type;
         public string? dlc;
         public bool isUnique;
+        public float score;
 
         public Dictionary<string, int> runeCoverage;
 

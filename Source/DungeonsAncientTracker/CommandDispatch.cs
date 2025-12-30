@@ -63,8 +63,34 @@ namespace DungeonsAncientTracker
 
                         case "ancient":
                             string fullAncientName = GetRemainingArgument(inputParts, 2);
-                            GetAncientReport(connection, fullAncientName);
-                            break;
+                            Dictionary<string, string> flags = GetFlagsFromParts(inputParts);
+
+                            if(flags != null)
+                            {
+                                GetAncientReport(
+                                connection,
+                                fullAncientName,
+                                flags.ContainsKey("-dlc")
+                                ? flags["-dlc"].Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList()
+                                : null,
+                                flags.ContainsKey("-nu")
+                                ? flags["-nu"] == "true"
+                                    ? true
+                                    : false
+                                : false
+                            );
+                            }
+                            else
+                            {
+                                GetAncientReport(
+                                connection,
+                                fullAncientName,
+                                null,
+                                false
+                            );
+                            }
+
+                                break;
 
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
@@ -114,6 +140,63 @@ namespace DungeonsAncientTracker
                 ? string.Join(' ', parts.Skip(startIndex))
                 : string.Empty;
         }
+
+        static Dictionary<string, string> GetFlagsFromParts(string[] tokens)
+        {
+            // StringComparer.OrdinalIgnoreCase just tells .NET to ignore capitalization
+            var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            string? currentFlag = null;
+
+            // Using string builder to avoid reallowcations / loss of memory while editing the string to find tokens
+            StringBuilder currentValue = new StringBuilder();
+
+            // Finding the flags and assigning the values of the falgs
+            foreach (string token in tokens)
+            {
+                // Marker for a flag
+                if (token.StartsWith("-"))
+                {
+                    // Commit previous flag
+                    if (currentFlag != null)
+                    {
+                        result[currentFlag] = currentValue.ToString().Trim();
+                        currentValue.Clear();
+                    }
+
+                    currentFlag = token;
+                }
+                else if (currentFlag != null)
+                {
+                    currentValue.Append(token).Append(' ');
+                }
+            }
+
+            // Commit last flag
+            if (currentFlag != null)
+            {
+                result[currentFlag] = currentValue.ToString().Trim();
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Flag tokenizer for a full string
+        /// </summary>
+        /// <param name="fullString"></param>
+        /// <returns></returns>
+        static Dictionary<string, string> GetFlagsFromString(string fullString)
+        {
+            // Getting all the tokens
+            string[] tokens = fullString.Split(
+                ' ',
+                StringSplitOptions.RemoveEmptyEntries
+            );
+            return GetFlagsFromParts(tokens);
+            
+        }
+
 
 
         #region Commands
@@ -254,8 +337,31 @@ namespace DungeonsAncientTracker
             }
         }
 
-        private static void GetAncientReport(SqliteConnection connection, string ancient)
+        private static void GetAncientReport(SqliteConnection connection, string ancient, List<string> allowedDLCs, bool excludeUnique)
         {
+            // Testing to see if the ancient name is valid 
+            bool exists;
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = @"
+                    SELECT 1
+                    FROM Ancient
+                    WHERE ancientName = @ancient
+                    LIMIT 1;
+                ";
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                exists = cmd.ExecuteScalar() != null;
+            }
+
+            if (!exists)
+            {
+                Console.WriteLine($"Ancient '{ancient}' does not exist.");
+                return;
+            }
+
+
+            #region query 1
             // --- First query ---
             string sql =
                 "SELECT a.ancientName, a.mobType, ar.runeName, ar.runeQuantity " +
@@ -266,7 +372,7 @@ namespace DungeonsAncientTracker
 
             Console.WriteLine($"Showing full report for Ancient: {ancient}");
 
-            var runeRows = new List<(string Rune, int Amount)>();
+            var runeRows = new Dictionary<string, int>();
             List<string?> loot = new List<string?>();
             string? mobType = null;
 
@@ -284,10 +390,7 @@ namespace DungeonsAncientTracker
                     {
                         mobType = reader["mobType"].ToString();
                     }
-                    runeRows.Add((
-                        reader.GetString(2),
-                        reader.GetInt32(3)
-                    ));
+                    runeRows[reader.GetString(2)] = reader.GetInt32(3);
                 }
             }
 
@@ -317,7 +420,7 @@ namespace DungeonsAncientTracker
             Console.WriteLine("Runes required:");
             foreach (var r in runeRows)
             {
-                Console.WriteLine($"{r.Rune, formatSpaceSizeSmall} x{r.Amount}");
+                Console.WriteLine($"{r.Key, formatSpaceSizeSmall} x{r.Value}");
             }
             Console.WriteLine();
 
@@ -327,45 +430,70 @@ namespace DungeonsAncientTracker
                 Console.WriteLine(item);
             }
             Console.WriteLine();
+            #endregion
 
             // --- Second query ---
             sql =
-                "SELECT al.itemName, m.mapName, m.dlc " +
-                "FROM AncientLoot al " +
-                "JOIN MapItems mi USING (itemName) " +
-                "JOIN Maps m USING (mapName) " +
-                "WHERE al.ancientName = @ancient " +
-                "ORDER BY al.itemName ASC, m.mapName ASC;";
+                "SELECT i.itemName, i.itemType, i.isUnique, " +
+                "i.dlc, ir.runeName, ir.runeQuantity " +
+                "FROM ItemRune ir " +
+                "JOIN Items i USING (itemName) " +
+                "WHERE ir.runeName IN ( " +
+                "SELECT runeName " +
+                "FROM AncientRune " +
+                "WHERE ancientName = @ancient " +
+                ") " +
+                "ORDER BY i.itemName ASC;";
+            List<ItemCanidate> rawCandidates = null;
 
             using (var cmd = connection.CreateCommand())
             {
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@ancient", ancient);
 
-                Console.WriteLine("Reccommended items to use for runes: ");
+                // Dict of all item canidates to store the data from the query. Not created in query due to nature of how SQL returns the data 
+                Dictionary<string, ItemCanidate> candidatesByName = new();
 
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    // Checking for null value
-                    object DLCValue = reader["dlc"];
-                    if (DLCValue == DBNull.Value)
+                    string itemName = reader.GetString(0);
+                    string itemType = reader.GetString(1);
+                    bool isUnique = reader.GetInt32(2) == 1;
+                    string? dlc = reader.IsDBNull(3) ? null : reader.GetString(3);
+                    string runeName = reader.GetString(4);
+                    int runeQty = reader.GetInt32(5);
+
+                    // Checking for item existance 
+                    if (!candidatesByName.TryGetValue(itemName, out var candidate))
                     {
-                        Console.WriteLine(
-                            $"ITEM: {reader["itemName"],formatSpaceSize}-> " +
-                            $"MAP: {reader["mapName"]}"
-                        );
+                        candidate = new ItemCanidate(itemName, itemType, dlc, isUnique);
+
+                        candidatesByName[itemName] = candidate;
+                    }
+
+                    // Updating rune coverage
+                    if (candidate.runeCoverage.ContainsKey(runeName))
+                    {
+                        candidate.runeCoverage[runeName] += runeQty;
                     }
                     else
                     {
-                        Console.WriteLine(
-                             $"ITEM: {reader["itemName"],formatSpaceSize}-> " +
-                            $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
-                        );
+                        candidate.runeCoverage[runeName] = runeQty;
                     }
                 }
+
+                // Final candidate set
+                rawCandidates = candidatesByName.Values.ToList(); 
             }
-            Console.WriteLine();
+
+            List<ItemCanidate> finalItems = RunFindOptimalItemsAlgo(rawCandidates, runeRows, allowedDLCs, excludeUnique);
+
+            Console.WriteLine("Reccommended items to use for runes: ");
+            foreach(ItemCanidate item in finalItems)
+            {
+                Console.WriteLine(item.name);
+            }
 
             // --- Third query ---
             sql =
@@ -490,7 +618,7 @@ namespace DungeonsAncientTracker
 
         private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
         {
-            if (allowedDLCs.Count() <= 0)
+            if (allowedDLCs.Count() <= 0 || allowedDLCs == null)
                 return true;
 
             bool containsDlc = itemDlc == null;
