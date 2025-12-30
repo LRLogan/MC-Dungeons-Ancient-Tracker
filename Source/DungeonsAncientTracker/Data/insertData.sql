@@ -23,7 +23,7 @@ INSERT INTO Maps (mapName, dlc) VALUES
 ('Dingy Jungle', 'Jungle Awakens'),
 ('Overgrown Temple', 'Jungle Awakens'),
 ('Panda Plateau', 'Jungle Awakens'),
-('Treetop Tangle', 'NULL'),
+('Treetop Tangle', NULL),
 ('Frosted Fjord', 'Creeping Winter'),
 ('Lone Fortress', 'Creeping Winter'),
 ('Lost Settlement', 'Creeping Winter'),

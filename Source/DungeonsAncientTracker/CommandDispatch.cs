@@ -129,17 +129,30 @@ namespace DungeonsAncientTracker
         }
 
         /// <summary>
-        /// Helper function to join the remaining parts of the input after initial seperation
+        /// Helper function to join the remaining parts of the input after initial seperation EXCLUDING Flags
         /// </summary>
         /// <param name="parts">array of broken strings</param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
         static string GetRemainingArgument(string[] parts, int startIndex)
         {
-            return parts.Length > startIndex
-                ? string.Join(' ', parts.Skip(startIndex))
-                : string.Empty;
+            if (startIndex >= parts.Length)
+                return string.Empty;
+
+            var tokens = new List<string>();
+
+            for (int i = startIndex; i < parts.Length; i++)
+            {
+                // Stop when we hit a flag 
+                if (parts[i].StartsWith('-'))
+                    break;
+
+                tokens.Add(parts[i]);
+            }
+
+            return string.Join(' ', tokens);
         }
+
 
         static Dictionary<string, string> GetFlagsFromParts(string[] tokens)
         {
@@ -302,6 +315,27 @@ namespace DungeonsAncientTracker
 
         private static void GetMapFromItem(SqliteConnection connection, string item)
         {
+            // Testing to see if the item name is valid 
+            bool exists;
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = @"
+                    SELECT 1
+                    FROM Items
+                    WHERE itemName = @item
+                    LIMIT 1;
+                ";
+                cmd.Parameters.AddWithValue("@item", item);
+
+                exists = cmd.ExecuteScalar() != null;
+            }
+
+            if (!exists)
+            {
+                Console.WriteLine($"Item '{item}' does not exist.");
+                return;
+            }
+
             string sql =
                 "SELECT m.mapName, m.dlc, i.itemName " +
                 "FROM MapItems mi " +
@@ -310,31 +344,34 @@ namespace DungeonsAncientTracker
                 "WHERE mi.itemName = @item " +
                 "ORDER BY m.mapName ASC;";
 
-            using var cmd = connection.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@item", item);
-
-            using var reader = cmd.ExecuteReader();
-            Console.WriteLine($"Showing map results for item: {item}");
-
-            // As of now this is the same loop from List Maps
-            while (reader.Read())
+            using (var cmd = connection.CreateCommand())
             {
-                // Checking for null value
-                object DLCValue = reader["dlc"];
-                if (DLCValue == DBNull.Value)
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@item", item);
+
+                using var reader = cmd.ExecuteReader();
+                Console.WriteLine($"Showing map results for item: {item}");
+
+                // As of now this is the same loop from List Maps
+                while (reader.Read())
                 {
-                    Console.WriteLine(
-                        $"MAP: {reader["mapName"]}"
-                    );
-                }
-                else
-                {
-                    Console.WriteLine(
-                        $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
-                    );
+                    // Checking for null value
+                    object DLCValue = reader["dlc"];
+                    if (DLCValue == DBNull.Value)
+                    {
+                        Console.WriteLine(
+                            $"MAP: {reader["mapName"]}"
+                        );
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
+                        );
+                    }
                 }
             }
+            
         }
 
         private static void GetAncientReport(SqliteConnection connection, string ancient, List<string> allowedDLCs, bool excludeUnique)
@@ -524,7 +561,7 @@ namespace DungeonsAncientTracker
 
         private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string> allowedDLCs, bool excludeUnique)
         {
-            string[] typeOrder = { "melee", "ranged", "armor", "artifact" };
+            string[] typeOrder = { "Melee", "Ranged", "Armor", "Artifact" };
             Dictionary<string, List<ItemCanidate>> itemsByType = new();
             List<ItemCanidate> selectedItems = new();
             ItemCanidate bestItem = null;
