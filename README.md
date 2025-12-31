@@ -122,8 +122,8 @@ The following commands are currently implemented and available:
 | `list ancients`               | Lists all known Ancients.                                                           | *(none)*        |
 | `list items`                  | Lists all items that can be queried or used in recommendations.                     | `-dlc`, `-nu`   |
 | `list runes`                  | Lists all runes and their simplified names.                                         | *(none)*        |   
-| `get map {item name}`         | Returns the map(s) associated with the specified item. Item name is case sensitive. | `-dlc`, `-nu`   |
-| `get ancient { ancient name}` | Returns a report for the given ancient. Ancient name is case sensitive. Flags effect the algorithm used to determine best items for the runes required by the ancient.      | `-dlc`, `-nu`   |
+| `get map {Item Name}`         | Returns the map(s) associated with the specified item. Item name is case sensitive. | `-dlc`, `-nu`   |
+| `get ancient {Ancient Name}` | Returns a report for the given ancient. Ancient name is case sensitive. Flags effect the algorithm used to determine best items for the runes required by the ancient.      | `-dlc`, `-nu`   |
 
 
 Each command outputs all known entries of the requested type.
