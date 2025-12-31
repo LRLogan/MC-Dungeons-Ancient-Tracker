@@ -21,6 +21,7 @@ namespace DungeonsAncientTracker
                 ' ',
                 StringSplitOptions.RemoveEmptyEntries
                 );
+            Dictionary<string, string> flags = new();
 
             // Handles the user input 
             switch (inputParts[0])
@@ -30,7 +31,12 @@ namespace DungeonsAncientTracker
                     switch (inputParts[1])
                     {
                         case "maps":
-                            ListMaps(connection);
+                            if (flags != null && flags.Count() >= 0) flags.Clear();
+                            flags = GetFlagsFromParts(inputParts);
+                            ListMaps(connection,
+                                flags.ContainsKey("-dlc")
+                                ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                                : null);
                             break;
 
                         case "runes":
@@ -42,7 +48,8 @@ namespace DungeonsAncientTracker
                             break;
 
                         case "items":
-                            Dictionary<string, string> flags = GetFlagsFromParts(inputParts);
+                            if (flags != null && flags.Count() >= 0) flags.Clear();
+                            flags = GetFlagsFromParts(inputParts);
                             ListItems(connection,
                                 flags.ContainsKey("-dlc")
                                 ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
@@ -70,7 +77,8 @@ namespace DungeonsAncientTracker
 
                         case "ancient":
                             string fullAncientName = GetRemainingArgument(inputParts, 2);
-                            Dictionary<string, string> flags = GetFlagsFromParts(inputParts);
+                            if (flags != null && flags.Count() >= 0) flags.Clear();
+                            flags = GetFlagsFromParts(inputParts);
 
                             GetAncientReport(
                                 connection,
@@ -207,7 +215,7 @@ namespace DungeonsAncientTracker
 
         #region Commands
 
-        private static void ListMaps(SqliteConnection connection)
+        private static void ListMaps(SqliteConnection connection, List<string>? allowedDLCs)
         {
             // Actual SQL command
             string sql = 
@@ -223,9 +231,13 @@ namespace DungeonsAncientTracker
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
+                string? dlc = reader["dlc"] == DBNull.Value ? null : reader["dlc"].ToString();
+
+                if (!CheckDlc(dlc, allowedDLCs))
+                    continue;
+
                 // Checking for null value
-                object DLCValue = reader["dlc"];
-                if (DLCValue == DBNull.Value)
+                if (reader["dlc"] == DBNull.Value)
                 {
                     Console.WriteLine(
                         $"MAP: {reader["mapName"]}"
