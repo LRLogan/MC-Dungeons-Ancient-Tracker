@@ -13,7 +13,7 @@ Built in C# and SQLite
   - ( Recommended that you use the most recent release )
 
 ### Running the Application
-- Extract the zip folder to a location of your choosing
+- Extract (unzip) the zip folder to a location of your choosing
 - Inside that folder you will find a .exe file
   - Double click on that file to launch the console program
 
