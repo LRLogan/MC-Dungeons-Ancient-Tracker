@@ -42,7 +42,14 @@ namespace DungeonsAncientTracker
                             break;
 
                         case "items":
-                            ListItems(connection); 
+                            Dictionary<string, string> flags = GetFlagsFromParts(inputParts);
+                            ListItems(connection,
+                                flags.ContainsKey("-dlc")
+                                ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                                : null,
+                                flags.ContainsKey("-nu")
+                                ? true
+                                : false); 
                             break;
 
                         default:
@@ -65,28 +72,16 @@ namespace DungeonsAncientTracker
                             string fullAncientName = GetRemainingArgument(inputParts, 2);
                             Dictionary<string, string> flags = GetFlagsFromParts(inputParts);
 
-                            if(flags != null)
-                            {
-                                GetAncientReport(
+                            GetAncientReport(
                                 connection,
                                 fullAncientName,
                                 flags.ContainsKey("-dlc")
-                                ? flags["-dlc"].Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList()
+                                ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                                 : null,
                                 flags.ContainsKey("-nu")
                                 ? true
                                 : false
-                            );
-                            }
-                            else
-                            {
-                                GetAncientReport(
-                                connection,
-                                fullAncientName,
-                                null,
-                                false
-                            );
-                            }
+                                );
 
                                 break;
 
@@ -264,10 +259,10 @@ namespace DungeonsAncientTracker
             }
         }
 
-        private static void ListItems(SqliteConnection connection)
+        private static void ListItems(SqliteConnection connection, List<string>? allowedDLCs, bool excludeUnique)
         {
             string sql =
-                "SELECT itemName, itemType, dlc " +
+                "SELECT itemName, itemType, isUnique, dlc " +
                 "FROM Items " +
                 "ORDER BY itemName ASC;";
 
@@ -277,8 +272,17 @@ namespace DungeonsAncientTracker
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                object DLCValue = reader["dlc"];
-                if (DLCValue == DBNull.Value)
+                // Excluding uniques
+                if (reader["isUnique"].ToString() == "1" && excludeUnique)
+                    continue;
+                 
+                string? dlc = reader["dlc"] == DBNull.Value ? null : reader["dlc"].ToString();
+                
+                if (!CheckDlc(dlc, allowedDLCs))
+                    continue;
+
+                // Special formatting for if DLC does not exist 
+                if (reader["dlc"] == DBNull.Value)
                 {
                     Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
                     $"-> TYPE: {reader["itemType"],formatSpaceSize}" 
@@ -372,7 +376,7 @@ namespace DungeonsAncientTracker
             
         }
 
-        private static void GetAncientReport(SqliteConnection connection, string ancient, List<string> allowedDLCs, bool excludeUnique)
+        private static void GetAncientReport(SqliteConnection connection, string ancient, List<string>? allowedDLCs, bool excludeUnique)
         {
             // Testing to see if the ancient name is valid 
             bool exists;
@@ -573,7 +577,7 @@ namespace DungeonsAncientTracker
             float curItemCost = 0;
 
             // Filtering before algo to optimize 
-            foreach(ItemCanidate item in canidateSet)
+            foreach (ItemCanidate item in canidateSet)
             {
                 if (!CheckDlc(item.dlc, allowedDLCs))
                     continue;
@@ -666,28 +670,32 @@ namespace DungeonsAncientTracker
             return false;
         }
 
+        /// <summary>
+        /// Returnes true if the item is in an allowedDLC
+        /// </summary>
+        /// <param name="itemDlc"></param>
+        /// <param name="allowedDLCs"></param>
+        /// <returns></returns>
         private static bool CheckDlc(string? itemDlc, List<string> allowedDLCs)
         {
             // early exit
-            if (allowedDLCs == null || itemDlc == null)
+            if (allowedDLCs == null)
                 return true;
             if (allowedDLCs.Count() <= 0)
                 return true;
 
-            // no dlc
-            if (allowedDLCs.Contains("none") && itemDlc == null)
+            bool containsDlc = false;
+            foreach (string dlc in allowedDLCs)
             {
-                return true;
-            }
-
-            // regular dlc names
-            bool containsDlc = itemDlc == null;
-            foreach(string dlc in allowedDLCs)
-            {
-                if(dlc == itemDlc)
+                // no dlc
+                if (dlc == "none" && itemDlc == null)
+                {
+                    return true;
+                }
+                
+                if (dlc == itemDlc)
                     containsDlc = true;
             }
-
             return containsDlc;
         }
     }
