@@ -1,7 +1,9 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -90,8 +92,11 @@ namespace DungeonsAncientTracker
                                 ? true
                                 : false
                                 );
-
                                 break;
+
+                        case "rune":
+                            GetRune(connection, inputParts[2]);
+                            break;
 
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
@@ -125,6 +130,7 @@ namespace DungeonsAncientTracker
             Console.WriteLine("list items");
             Console.WriteLine("get map {Item Name}");
             Console.WriteLine("get ancient {Ancient Name}");
+            Console.WriteLine("get rune {Rune Name}");
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
         }
@@ -346,7 +352,8 @@ namespace DungeonsAncientTracker
 
             if (!exists)
             {
-                Console.WriteLine($"Item '{item}' does not exist.");
+                Console.WriteLine($"Item '{item}' does not exist. " +
+                    $"\nType: 'list items' to see full list of item names");
                 return;
             }
 
@@ -575,6 +582,59 @@ namespace DungeonsAncientTracker
                     Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall}, x{reader["occurrenceCount"]}");
                 }
             }
+        }
+
+        private static void GetRune(SqliteConnection connection, string rune)
+        {
+            // Testing to see if the rune name is valid 
+            bool exists;
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = @"
+                    SELECT 1
+                    FROM Rune
+                    WHERE runeName = @rune
+                    LIMIT 1;
+                ";
+                cmd.Parameters.AddWithValue("@rune", rune);
+
+                exists = cmd.ExecuteScalar() != null;
+            }
+
+            if (!exists)
+            {
+                Console.WriteLine($"Rune '{rune}' does not exist. " +
+                    $"\nType: 'list runes' to see full list of rune names");
+                return;
+            }
+
+            string sql =
+                "SELECT itemName, runeName " +
+                "FROM ItemRune " +
+                "WHERE runeName = @rune;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@rune", rune);
+
+                using var reader = cmd.ExecuteReader();
+                Console.WriteLine($"Showing rune data for the rune: {rune}");
+
+                Dictionary<string, List<string>> mapsByitem = new();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine($"ITEM: {reader["itemName"]}");
+                    GetMapFromItem(connection, reader["itemName"].ToString());
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        private static void GetItem(SqliteConnection connection, string item)
+        {
+
         }
 
         #endregion
