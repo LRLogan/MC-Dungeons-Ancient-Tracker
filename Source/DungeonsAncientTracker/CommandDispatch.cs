@@ -17,6 +17,7 @@ namespace DungeonsAncientTracker
     {
         private const int formatSpaceSize = -25;
         private const int formatSpaceSizeSmall = -15;
+        private const int formatSpaceSizeTiny = -5;
 
         public static void Dispatch(string input, SqliteConnection connection)
         {
@@ -306,17 +307,21 @@ namespace DungeonsAncientTracker
                 if (!CheckDlc(dlc, allowedDLCs))
                     continue;
 
+                string isItemUnique = reader.GetBoolean(2) ? "Y" : "N";
+
                 // Special formatting for if DLC does not exist 
                 if (reader["dlc"] == DBNull.Value)
                 {
                     Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
-                    $"-> TYPE: {reader["itemType"],formatSpaceSize}" 
+                    $"-> TYPE: {reader["itemType"],formatSpaceSizeSmall} " +
+                    $"Is Unique: {isItemUnique}" 
                     );
                 }
                 else
                 {
-                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
-                    $"-> TYPE: {reader["itemType"],formatSpaceSize}" +
+                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize} " +
+                    $"-> TYPE: {reader["itemType"],formatSpaceSizeSmall} " +
+                    $"Is Unique: {isItemUnique,formatSpaceSizeTiny}" +
                     $"-> DLC: {reader["dlc"]}"
                     );
                 }
