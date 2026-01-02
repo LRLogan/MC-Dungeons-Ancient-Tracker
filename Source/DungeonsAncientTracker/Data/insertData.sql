@@ -362,6 +362,8 @@ INSERT INTO Ancient (ancientName, mobType) VALUES
 -- Joint tables
 INSERT INTO MapItems (mapName, itemName) VALUES
 ('Creeper Woods', 'Sword'),
+('Creeper Woods', 'Highland Axe'),
+('Creeper Woods', 'Firebrand'),
 ('Creeper Woods', 'Spear'),
 ('Creeper Woods', 'Axe'),
 ('Creeper Woods', 'Bow'),
@@ -426,6 +428,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Swamp', 'Totem of Regeneration'),
 
 ('Soggy Cave', 'Gauntlets'),
+('Soggy Cave', 'Dancers Sword'),
 ('Soggy Cave', 'Double Axe'),
 ('Soggy Cave', 'Daggers'),
 ('Soggy Cave', 'Cutlass'),
@@ -453,6 +456,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Redstone Mines', 'Totem of Casting'),
 
 ('Fiery Forge', 'Cutlass'),
+('Fiery Forge', 'Dancers Sword'),
 ('Fiery Forge', 'Great Hammer'),
 ('Fiery Forge', 'Power Bow'),
 ('Fiery Forge', 'Exploding Crossbow'),
@@ -469,6 +473,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Cacti Canyon', 'Gauntlets'),
 ('Cacti Canyon', 'Cutlass'),
+('Cacti Canyon', 'Dancers Sword'),
 ('Cacti Canyon', 'Trickbow'),
 ('Cacti Canyon', 'Shortbow'),
 ('Cacti Canyon', 'Longbow'),
@@ -498,6 +503,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Lower Temple', 'Katana'),
 ('Lower Temple', 'Battlestaff'),
+('Lower Temple', 'Growing Staff'),
+('Lower Temple', 'Battlestaff of Terror'),
 ('Lower Temple', 'Trickbow'),
 ('Lower Temple', 'Dual Crossbows'),
 ('Lower Temple', 'Reinforced Mail'),
@@ -510,6 +517,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lower Temple', 'Buzzy Nest'),
 
 ('Highblock Halls', 'Mace'),
+('Highblock Halls', 'Highland Axe'),
+('Highblock Halls', 'Firebrand'),
 ('Highblock Halls', 'Axe'),
 ('Highblock Halls', 'Power Bow'),
 ('Highblock Halls', 'Rapid Crossbow'),
@@ -535,6 +544,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Underhalls', 'Soul Lantern'),
 
 ('Obsidian Pinnacle', 'Katana'),
+('Obsidian Pinnacle', 'Heartstealer'),
+('Obsidian Pinnacle', 'Broadsword'),
 ('Obsidian Pinnacle', 'Claymore'),
 ('Obsidian Pinnacle', 'Great Hammer'),
 ('Obsidian Pinnacle', 'Crossbow'),
@@ -548,6 +559,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Obsidian Pinnacle', 'Lightning Rod'),
 
 ('???', 'Claymore'),
+('???', 'Broadsword'),
+('???', 'Heartstealer'),
 ('???', 'Mace'),
 ('???', 'Soul Scythe'),
 ('???', 'Soul Crossbow'),
@@ -571,6 +584,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('The Stronghold', 'Entertainers Garb'),
 
 ('End Wilds', 'Obsidian Claymore'),
+('End Wilds', 'Swift Striker'),
 ('End Wilds', 'Sickles'),
 ('End Wilds', 'Backstabber'),
 ('End Wilds', 'Trickbow'),
@@ -614,6 +628,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Dingy Jungle', 'Totem of Regeneration'),
 
 ('Overgrown Temple', 'Axe'),
+('Overgrown Temple', 'Highland Axe'),
+('Overgrown Temple', 'Firebrand'),
 ('Overgrown Temple', 'Great Hammer'),
 ('Overgrown Temple', 'Spear'),
 ('Overgrown Temple', 'Soul Bow'),
@@ -675,6 +691,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lone Fortress', 'Totem of Shielding'),
 
 ('Lost Settlement', 'Cutlass'),
+('Lost Settlement', 'Dancers Sword'),
 ('Lost Settlement', 'Mace'),
 ('Lost Settlement', 'Sickles'),
 ('Lost Settlement', 'Snow Bow'),
@@ -688,6 +705,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lost Settlement', 'Shock Powder'),
 
 ('Windswept Peaks', 'Battlestaff'),
+('Windswept Peaks', 'Growing Staff'),
+('Windswept Peaks', 'Battlestaff of Terror'),
 ('Windswept Peaks', 'Double Axe'),
 ('Windswept Peaks', 'Tempest Knife'),
 ('Windswept Peaks', 'Dual Crossbows'),
@@ -712,6 +731,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gauntlet of Gales', 'Updraft Tome'),
 
 ('Gale Sanctum', 'Claymore'),
+('Gale Sanctum', 'Broadsword'),
+('Gale Sanctum', 'Heartstealer'),
 ('Gale Sanctum', 'Tempest Knife'),
 ('Gale Sanctum', 'Bow'),
 ('Gale Sanctum', 'Shortbow'),
@@ -725,6 +746,10 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gale Sanctum', 'Satchel of Elements'),
 
 ('Colossal Rampart', 'Axe'),
+('Colossal Rampart', 'Growing Staff'),
+('Colossal Rampart', 'Battlestaff of Terror'),
+('Colossal Rampart', 'Highland Axe'),
+('Colossal Rampart', 'Firebrand'),
 ('Colossal Rampart', 'Battlestaff'),
 ('Colossal Rampart', 'Spear'),
 ('Colossal Rampart', 'Tempest Knife'),
@@ -740,6 +765,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Coral Rise', 'Coral Blade'),
 ('Coral Rise', 'Gauntlets'),
+('Coral Rise', 'Sponge Striker'),
 ('Coral Rise', 'Katana'),
 ('Coral Rise', 'Bubble Bow'),
 ('Coral Rise', 'Rapid Crossbow'),
@@ -751,6 +777,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Coral Rise', 'Satchel of Elixirs'),
 
 ('Abyssal Monument', 'Anchor'),
+('Abyssal Monument', 'Encrusted Anchor'),
 ('Abyssal Monument', 'Great Hammer'),
 ('Abyssal Monument', 'Soul Scythe'),
 ('Abyssal Monument', 'Bubble Bow'),
@@ -764,6 +791,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Abyssal Monument', 'Satchel of Snacks'),
 
 ('Radiant Ravine', 'Anchor'),
+('Radiant Ravine', 'Sponge Striker'),
+('Radiant Ravine', 'Encrusted Anchor'),
 ('Radiant Ravine', 'Coral Blade'),
 ('Radiant Ravine', 'Pickaxe'),
 ('Radiant Ravine', 'Crossbow'),
@@ -787,6 +816,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Nether Wastes', 'Wind Horn'),
 
 ('Warped Forest', 'Boneclub'),
+('Warped Forest', 'Bone Cudgel'),
 ('Warped Forest', 'Sickles'),
 ('Warped Forest', 'Soul Knife'),
 ('Warped Forest', 'Twisting Vine Bow'),
@@ -798,6 +828,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Crimson Forest', 'Broken Sawblade'),
 ('Crimson Forest', 'Cutlass'),
+('Crimson Forest', 'Dancers Sword'),
+('Crimson Forest', 'Mechanized Sawblade'),
 ('Crimson Forest', 'Heavy Crossbow'),
 ('Crimson Forest', 'Evocation Robe'),
 ('Crimson Forest', 'Sprout Armor'),
@@ -806,6 +838,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Crimson Forest', 'Totem of Shielding'),
 
 ('Soul Sand Valley', 'Boneclub'),
+('Soul Sand Valley', 'Bone Cudgel'),
 ('Soul Sand Valley', 'Scatter Crossbow'),
 ('Soul Sand Valley', 'Grim Armor'),
 ('Soul Sand Valley', 'Sprout Armor'),
@@ -827,6 +860,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Nether Fortress', 'Broken Sawblade'),
 ('Nether Fortress', 'Mace'),
+('Nether Fortress', 'Mechanized Sawblade'),
+('Nether Fortress', 'Growing Staff'),
+('Nether Fortress', 'Battlestaff of Terror'),
 ('Nether Fortress', 'Cog Crossbow'),
 ('Nether Fortress', 'Power Bow'),
 ('Nether Fortress', 'Reinforced Mail'),
