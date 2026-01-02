@@ -98,6 +98,11 @@ namespace DungeonsAncientTracker
                             GetRune(connection, inputParts[2]);
                             break;
 
+                        case "item":
+                            string fullItemNamae = GetRemainingArgument(inputParts, 2);
+                            GetItem(connection, fullItemNamae);
+                            break;
+
                         default:
                             Console.WriteLine($"Unknown command '{inputParts[1]}'. " +
                                 $"\nType 'help' for list of Available commands");
@@ -131,6 +136,7 @@ namespace DungeonsAncientTracker
             Console.WriteLine("get map {Item Name}");
             Console.WriteLine("get ancient {Ancient Name}");
             Console.WriteLine("get rune {Rune Name}");
+            Console.WriteLine("get item {Item Name}");
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
         }
@@ -634,7 +640,85 @@ namespace DungeonsAncientTracker
 
         private static void GetItem(SqliteConnection connection, string item)
         {
+            // Testing to see if the item name is valid 
+            bool exists;
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = @"
+                    SELECT 1
+                    FROM Items
+                    WHERE itemName = @item
+                    LIMIT 1;
+                ";
+                cmd.Parameters.AddWithValue("@item", item);
 
+                exists = cmd.ExecuteScalar() != null;
+            }
+
+            if (!exists)
+            {
+                Console.WriteLine($"Item '{item}' does not exist. " +
+                    $"\nType: 'list items' to see full list of item names");
+                return;
+            }
+
+            // -- Query 1 --
+            string sql =
+                "SELECT ir.itemName, ir.runeName, ir.runeQuantity " +
+                "FROM ItemRune ir " +
+                "WHERE ir.itemName = @item " +
+                "ORDER BY ir.runeName ASC;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@item", item);
+
+                using var reader = cmd.ExecuteReader();
+                Console.WriteLine($"Runes attached to item: {item}");
+
+                while (reader.Read())
+                {
+                    Console.WriteLine($"RUNE: {reader["runeName"],formatSpaceSizeSmall} x {reader["runeQuantity"]}");
+                }
+                Console.WriteLine();
+            }
+
+            // -- Query 2 --
+            sql =
+                "SELECT m.mapName, m.dlc, i.itemName " +
+                "FROM MapItems mi " +
+                "JOIN Maps m USING (mapName) " +
+                "JOIN Items i USING (itemName) " +
+                "WHERE mi.itemName = @item " +
+                "ORDER BY m.mapName ASC;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@item", item);
+
+                using var reader = cmd.ExecuteReader();
+                Console.WriteLine($"Showing map results where item: {item} can be found");
+
+                while (reader.Read())
+                {
+                    // Checking for null value
+                    object DLCValue = reader["dlc"];
+                    if (DLCValue == DBNull.Value)
+                    {
+                        Console.WriteLine(
+                            $"MAP: {reader["mapName"]}"
+                        );
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
+                        );
+                    }
+                }
+            }
         }
 
         #endregion
