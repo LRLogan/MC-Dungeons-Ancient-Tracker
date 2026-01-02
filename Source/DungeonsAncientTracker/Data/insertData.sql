@@ -428,6 +428,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Swamp', 'Totem of Regeneration'),
 
 ('Soggy Cave', 'Gauntlets'),
+('Soggy Cave', 'Nameless Blade'),
 ('Soggy Cave', 'Dancers Sword'),
 ('Soggy Cave', 'Double Axe'),
 ('Soggy Cave', 'Daggers'),
@@ -456,6 +457,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Redstone Mines', 'Totem of Casting'),
 
 ('Fiery Forge', 'Cutlass'),
+('Fiery Forge', 'Nameless Blade'),
 ('Fiery Forge', 'Dancers Sword'),
 ('Fiery Forge', 'Great Hammer'),
 ('Fiery Forge', 'Power Bow'),
@@ -472,6 +474,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Fiery Forge', 'Flaming Quiver'),
 
 ('Cacti Canyon', 'Gauntlets'),
+('Cacti Canyon', 'Nameless Blade'),
 ('Cacti Canyon', 'Cutlass'),
 ('Cacti Canyon', 'Dancers Sword'),
 ('Cacti Canyon', 'Trickbow'),
@@ -691,6 +694,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lone Fortress', 'Totem of Shielding'),
 
 ('Lost Settlement', 'Cutlass'),
+('Lost Settlement', 'Nameless Blade'),
 ('Lost Settlement', 'Dancers Sword'),
 ('Lost Settlement', 'Mace'),
 ('Lost Settlement', 'Sickles'),
@@ -828,6 +832,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Crimson Forest', 'Broken Sawblade'),
 ('Crimson Forest', 'Cutlass'),
+('Crimson Forest', 'Nameless Blade'),
 ('Crimson Forest', 'Dancers Sword'),
 ('Crimson Forest', 'Mechanized Sawblade'),
 ('Crimson Forest', 'Heavy Crossbow'),
