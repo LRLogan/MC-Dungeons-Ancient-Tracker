@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -496,7 +497,32 @@ namespace DungeonsAncientTracker
             Console.WriteLine();
             #endregion
 
-            // --- Second query ---
+            // -- Second query showes alternate map locations --
+            sql =
+                "SELECT m.mapName, COUNT(*) AS occurrenceCount " +
+                "FROM AncientLoot al " +
+                "JOIN MapItems mi USING (itemName) " +
+                "JOIN Maps m USING (mapName) " +
+                @"WHERE al.ancientName = @ancient " +
+                "GROUP BY m.mapName " +
+                "ORDER BY occurrenceCount DESC, m.mapName ASC;";
+
+            Console.WriteLine("Alternate locations to acquire loot: ");
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@ancient", ancient);
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall}, x{reader["occurrenceCount"]}");
+                }
+                Console.WriteLine();
+            }
+
+            // --- Third query ---
             sql =
                 "SELECT i.itemName, i.itemType, i.isUnique, " +
                 "i.dlc, ir.runeName, ir.runeQuantity " +
@@ -565,28 +591,50 @@ namespace DungeonsAncientTracker
                 Console.WriteLine();
             }
 
-            // --- Third query ---
+            // --- Fourth query ---
             sql =
-                "SELECT m.mapName, COUNT(*) AS occurrenceCount " +
-                "FROM AncientLoot al " +
-                "JOIN MapItems mi USING (itemName) " +
-                "JOIN Maps m USING (mapName) " +
-                "WHERE al.ancientName = @ancient " +
-                "GROUP BY m.mapName " +
-                "ORDER BY occurrenceCount DESC, m.mapName ASC;";
-
-            Console.WriteLine("Condenced map count: ");
+                "SELECT mi.mapName, mi.itemName, COUNT(mi.mapName) AS occurrenceCount " +
+                "FROM MapItems mi " +
+                @"WHERE mi.itemName = @item " +
+                "GROUP BY mi.mapName " +
+                "ORDER BY occurrenceCount DESC, mi.mapName ASC;";
 
             using (var cmd = connection.CreateCommand())
             {
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@ancient", ancient);
+                Dictionary<string, int> mapCount = new();
 
-                using var reader = cmd.ExecuteReader();
-                while (reader.Read())
+                foreach (ItemCanidate item in finalItems)
                 {
-                    Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall}, x{reader["occurrenceCount"]}");
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@item", item.name);
+                    using var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string mapName = reader.GetString(0);
+                        int count = reader.GetInt32(2);
+
+                        if (mapCount.ContainsKey(mapName))
+                            mapCount[mapName] += count;
+                        else
+                            mapCount[mapName] = count;
+                    }
+
                 }
+
+                Console.WriteLine("Maps where you can get the items for runes: ");
+
+                // Sorting the dict
+                var sortedMapCount = mapCount
+                    .OrderByDescending(kvp => kvp.Value)
+                        .ThenBy(kvp => kvp.Key);
+
+                foreach (var map in sortedMapCount)
+                {
+                    Console.WriteLine($"{map.Key,formatSpaceSizeSmall} x {map.Value}");
+                }
+                Console.WriteLine();
             }
         }
 
@@ -626,8 +674,6 @@ namespace DungeonsAncientTracker
 
                 using var reader = cmd.ExecuteReader();
                 Console.WriteLine($"Showing rune data for the rune: {rune}");
-
-                Dictionary<string, List<string>> mapsByitem = new();
 
                 while (reader.Read())
                 {
