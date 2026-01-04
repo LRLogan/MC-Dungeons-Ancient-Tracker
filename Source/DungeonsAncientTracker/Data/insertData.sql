@@ -362,6 +362,10 @@ INSERT INTO Ancient (ancientName, mobType) VALUES
 -- Joint tables
 INSERT INTO MapItems (mapName, itemName) VALUES
 ('Creeper Woods', 'Sword'),
+('Creeper Woods', 'Nocturnal Bow'),
+('Creeper Woods', 'Bow of Lost Souls'),
+('Creeper Woods', 'Bonebow'),
+('Creeper Woods', 'Twin Bow'),
 ('Creeper Woods', 'Whispering Spear'),
 ('Creeper Woods', 'Fortune Spear'),
 ('Creeper Woods', 'Hawkbrand'),
@@ -381,6 +385,10 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Creeper Woods', 'Torment Quiver'),
 
 ('Creepy Crypt', 'Sword'),
+('Creepy Crypt', 'Nocturnal Bow'),
+('Creepy Crypt', 'Bow of Lost Souls'),
+('Creepy Crypt', 'Twin Bow'),
+('Creepy Crypt', 'Bonebow'),
 ('Creepy Crypt', 'Hawkbrand'),
 ('Creepy Crypt', 'Diamond Sword'),
 ('Creepy Crypt', 'Diamond Pickaxe'),
@@ -397,6 +405,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Creepy Crypt', 'Soul Lantern'),
 
 ('Pumpkin Pastures', 'Sword'),
+('Pumpkin Pastures', 'Red Snake'),
+('Pumpkin Pastures', 'Guardian Bow'),
 ('Pumpkin Pastures', 'Jailors Scythe'),
 ('Pumpkin Pastures', 'Frost Scythe'),
 ('Pumpkin Pastures', 'Hawkbrand'),
@@ -415,6 +425,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Pumpkin Pastures', 'Flaming Quiver'),
 
 ('Arch Haven', 'Sickles'),
+('Arch Haven', 'Red Snake'),
+('Arch Haven', 'Guardian Bow'),
 ('Arch Haven', 'Jailors Scythe'),
 ('Arch Haven', 'Frost Scythe'),
 ('Arch Haven', 'The Last Laugh'),
@@ -431,6 +443,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Arch Haven', 'Love Medallion'),
 
 ('Soggy Swamp', 'Glaive'),
+('Soggy Swamp', 'Masters Bow'),
 ('Soggy Swamp', 'Whirlwind'),
 ('Soggy Swamp', 'Cursed Axe'),
 ('Soggy Swamp', 'Truthseeker'),
@@ -442,6 +455,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Swamp', 'Fangs of Frost'),
 ('Soggy Swamp', 'Double Axe'),
 ('Soggy Swamp', 'Daggers'),
+('Soggy Swamp', 'Hunters Promise'),
+('Soggy Swamp', 'Ancient Bow'),
 ('Soggy Swamp', 'Soul Knife'),
 ('Soggy Swamp', 'Hunting Bow'),
 ('Soggy Swamp', 'Scatter Crossbow'),
@@ -454,6 +469,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Swamp', 'Totem of Regeneration'),
 
 ('Soggy Cave', 'Gauntlets'),
+('Soggy Cave', 'Masters Bow'),
+('Soggy Cave', 'Hunters Promise'),
+('Soggy Cave', 'Ancient Bow'),
 ('Soggy Cave', 'Whirlwind'),
 ('Soggy Cave', 'Cursed Axe'),
 ('Soggy Cave', 'Maulers'),
@@ -495,6 +513,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Redstone Mines', 'Totem of Casting'),
 
 ('Fiery Forge', 'Cutlass'),
+('Fiery Forge', 'Sabrewing'),
+('Fiery Forge', 'Elite Power Bow'),
 ('Fiery Forge', 'Stormlander'),
 ('Fiery Forge', 'Hammer of Gravity'),
 ('Fiery Forge', 'Nameless Blade'),
@@ -514,8 +534,15 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Fiery Forge', 'Flaming Quiver'),
 
 ('Cacti Canyon', 'Gauntlets'),
+('Cacti Canyon', 'Purple Storm'),
+('Cacti Canyon', 'Mechanical Shortbow'),
+('Cacti Canyon', 'Love Spell Bow'),
+('Cacti Canyon', 'Red Snake'),
+('Cacti Canyon', 'Guardian Bow'),
 ('Cacti Canyon', 'Soul Fists'),
 ('Cacti Canyon', 'Maulers'),
+('Cacti Canyon', 'The Pink Scoundrel'),
+('Cacti Canyon', 'The Green Menace'),
 ('Cacti Canyon', 'Fighters Bindings'),
 ('Cacti Canyon', 'Nameless Blade'),
 ('Cacti Canyon', 'Cutlass'),
@@ -535,6 +562,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Cacti Canyon', 'Soul Lantern'),
 
 ('Desert Temple', 'Sickles'),
+('Desert Temple', 'Purple Storm'),
+('Desert Temple', 'Mechanical Shortbow'),
+('Desert Temple', 'Love Spell Bow'),
 ('Desert Temple', 'Truthseeker'),
 ('Desert Temple', 'Eternal Knife'),
 ('Desert Temple', 'The Last Laugh'),
@@ -554,6 +584,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Desert Temple', 'Torment Quiver'),
 
 ('Lower Temple', 'Katana'),
+('Lower Temple', 'The Pink Scoundrel'),
+('Lower Temple', 'The Green Menace'),
 ('Lower Temple', 'Masters Katana'),
 ('Lower Temple', 'Dark Katana'),
 ('Lower Temple', 'Battlestaff'),
@@ -571,6 +603,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lower Temple', 'Buzzy Nest'),
 
 ('Highblock Halls', 'Mace'),
+('Highblock Halls', 'Sabrewing'),
+('Highblock Halls', 'Elite Power Bow'),
 ('Highblock Halls', 'Suns Grace'),
 ('Highblock Halls', 'Flail'),
 ('Highblock Halls', 'Highland Axe'),
@@ -587,6 +621,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Highblock Halls', 'Love Medallion'),
 
 ('Underhalls', 'Spear'),
+('Underhalls', 'Sabrewing'),
+('Underhalls', 'Elite Power Bow'),
 ('Underhalls', 'Whispering Spear'),
 ('Underhalls', 'Fortune Spear'),
 ('Underhalls', 'Flail'),
@@ -639,6 +675,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('???', 'Enchanted Grass'),
 
 ('The Stronghold', 'Katana'),
+('The Stronghold', 'Purple Storm'),
+('The Stronghold', 'Love Spell Bow'),
 ('The Stronghold', 'Whirlwind'),
 ('The Stronghold', 'Cursed Axe'),
 ('The Stronghold', 'Masters Katana'),
@@ -652,6 +690,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('The Stronghold', 'Grave Bane'),
 ('The Stronghold', 'Gauntlets'),
 ('The Stronghold', 'Glaive'),
+('The Stronghold', 'Mechanical Shortbow'),
 ('The Stronghold', 'Double Axe'),
 ('The Stronghold', 'Mace'),
 ('The Stronghold', 'Shortbow'),
@@ -681,6 +720,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('End Wilds', 'Tome of Duplication'),
 
 ('Broken Citadel', 'Spear'),
+('Broken Citadel', 'Call of the Void'),
 ('Broken Citadel', 'The Beginning and The End'),
 ('Broken Citadel', 'Void Touched Blades'),
 ('Broken Citadel', 'Cutlass'),
@@ -699,6 +739,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Dingy Jungle', 'Double Axe'),
 ('Dingy Jungle', 'Gauntlets'),
+('Dingy Jungle', 'Twin Bow'),
+('Dingy Jungle', 'Bonebow'),
 ('Dingy Jungle', 'Whirlwind'),
 ('Dingy Jungle', 'Cursed Axe'),
 ('Dingy Jungle', 'Maulers'),
@@ -717,6 +759,10 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Dingy Jungle', 'Totem of Regeneration'),
 
 ('Overgrown Temple', 'Axe'),
+('Overgrown Temple', 'Nocturnal Bow'),
+('Overgrown Temple', 'Bow of Lost Souls'),
+('Overgrown Temple', 'The Pink Scoundrel'),
+('Overgrown Temple', 'The Green Menace'),
 ('Overgrown Temple', 'Whispering Spear'),
 ('Overgrown Temple', 'Fortune Spear'),
 ('Overgrown Temple', 'Stormlander'),
@@ -735,6 +781,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Overgrown Temple', 'Wind Horn'),
 
 ('Panda Plateau', 'Glaive'),
+('Panda Plateau', 'Masters Bow'),
+('Panda Plateau', 'Hunters Promise'),
+('Panda Plateau', 'Ancient Bow'),
 ('Panda Plateau', 'Masters Katana'),
 ('Panda Plateau', 'Dark Katana'),
 ('Panda Plateau', 'Vine Whip'),
@@ -765,6 +814,10 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Treetop Tangle', 'Totem of Casting'),
 
 ('Frosted Fjord', 'Pickaxe'),
+('Frosted Fjord', 'Winters Touch'),
+('Frosted Fjord', 'Purple Storm'),
+('Frosted Fjord', 'Mechanical Shortbow'),
+('Frosted Fjord', 'Love Spell Bow'),
 ('Frosted Fjord', 'Jailors Scythe'),
 ('Frosted Fjord', 'Frost Scythe'),
 ('Frosted Fjord', 'Diamond Pickaxe'),
@@ -794,6 +847,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lone Fortress', 'Totem of Shielding'),
 
 ('Lost Settlement', 'Cutlass'),
+('Lost Settlement', 'Winters Touch'),
 ('Lost Settlement', 'The Last Laugh'),
 ('Lost Settlement', 'Nightmares Bite'),
 ('Lost Settlement', 'Flail'),
@@ -813,6 +867,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lost Settlement', 'Shock Powder'),
 
 ('Windswept Peaks', 'Battlestaff'),
+('Windswept Peaks', 'Red Snake'),
+('Windswept Peaks', 'Guardian Bow'),
 ('Windswept Peaks', 'Whirlwind'),
 ('Windswept Peaks', 'Cursed Axe'),
 ('Windswept Peaks', 'Resolute Tempest Knife'),
@@ -843,6 +899,12 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gauntlet of Gales', 'Updraft Tome'),
 
 ('Gale Sanctum', 'Claymore'),
+('Gale Sanctum', 'Burst Gale Bow'),
+('Gale Sanctum', 'Purple Storm'),
+('Gale Sanctum', 'Mechanical Shortbow'),
+('Gale Sanctum', 'Love Spell Bow'),
+('Gale Sanctum', 'Bonebow'),
+('Gale Sanctum', 'Twin Bow'),
 ('Gale Sanctum', 'Resolute Tempest Knife'),
 ('Gale Sanctum', 'Chill Gale Knife'),
 ('Gale Sanctum', 'Broadsword'),
@@ -857,9 +919,12 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gale Sanctum', 'Plate Armor'),
 ('Gale Sanctum', 'Corrupted Beacon'),
 ('Gale Sanctum', 'Harvester'),
+('Gale Sanctum', 'Echo of the Valley'),
 ('Gale Sanctum', 'Satchel of Elements'),
 
 ('Colossal Rampart', 'Axe'),
+('Colossal Rampart', 'Echo of the Valley'),
+('Colossal Rampart', 'Burst Gale Bow'),
 ('Colossal Rampart', 'Whispering Spear'),
 ('Colossal Rampart', 'Fortune Spear'),
 ('Colossal Rampart', 'Resolute Tempest Knife'),
@@ -883,6 +948,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 
 ('Coral Rise', 'Coral Blade'),
 ('Coral Rise', 'Gauntlets'),
+('Coral Rise', 'Bubble Burster'),
 ('Coral Rise', 'Dark Katana'),
 ('Coral Rise', 'Masters Katana'),
 ('Coral Rise', 'Maulers'),
@@ -900,6 +966,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Coral Rise', 'Satchel of Elixirs'),
 
 ('Abyssal Monument', 'Anchor'),
+('Abyssal Monument', 'Bubble Burster'),
 ('Abyssal Monument', 'Stormlander'),
 ('Abyssal Monument', 'Hammer of Gravity'),
 ('Abyssal Monument', 'Encrusted Anchor'),
@@ -932,6 +999,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Radiant Ravine', 'Satchel of Snacks'),
 
 ('Nether Wastes', 'Battlestaff'),
+('Nether Wastes', 'Weeping Vine Bow'),
+('Nether Wastes', 'Sabrewing'),
+('Nether Wastes', 'Elite Power Bow'),
 ('Nether Wastes', 'Hawkbrand'),
 ('Nether Wastes', 'Diamond Sword'),
 ('Nether Wastes', 'Sword'),
@@ -944,6 +1014,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Nether Wastes', 'Wind Horn'),
 
 ('Warped Forest', 'Boneclub'),
+('Warped Forest', 'Weeping Vine Bow'),
 ('Warped Forest', 'Truthseeker'),
 ('Warped Forest', 'Eternal Knife'),
 ('Warped Forest', 'The Last Laugh'),
@@ -982,6 +1053,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soul Sand Valley', 'Thundering Quiver'),
 
 ('Basalt Deltas', 'Glaive'),
+('Basalt Deltas', 'The Green Menace'),
 ('Basalt Deltas', 'Venom Glaive'),
 ('Basalt Deltas', 'Grave Bane'),
 ('Basalt Deltas', 'Katana'),
@@ -990,11 +1062,15 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Basalt Deltas', 'Piglin Armor'),
 ('Basalt Deltas', 'Scale Mail'),
 ('Basalt Deltas', 'Spinblade'),
+('Basalt Deltas', 'The Pink Scoundrel'),
 ('Basalt Deltas', 'Totem of Regeneration'),
 ('Basalt Deltas', 'Wonderful Wheat'),
 
 ('Nether Fortress', 'Broken Sawblade'),
 ('Nether Fortress', 'Mace'),
+('Nether Fortress', 'Masters Bow'),
+('Nether Fortress', 'Hunters Promise'),
+('Nether Fortress', 'Ancient Bow'),
 ('Nether Fortress', 'Suns Grace'),
 ('Nether Fortress', 'Flail'),
 ('Nether Fortress', 'Mechanized Sawblade'),
