@@ -159,6 +159,7 @@ Flags are optional modifiers that alter how certain commands behave. Flags must 
 | `-nei` | *(none)*             | Excludes event items from results (`No Event Items`). Useful for generalized or repeatable solutions.|
 | `-nbi` | *(none)*             | Excludes unique items from results (`No Base Items`). Useful for generalized or repeatable solutions.|
 
+
 Examples of using flags:
 
 As long as the command supports the flag you can use as many as you need.
@@ -168,7 +169,9 @@ The command: `list items -nei -nbi -nu`
 Will return nothing because it is excluding all types of items.
 
 The command: `list items -dlc Hidden Depths,Howling Peaks -nbi`
+
 Will only show the unique items in the Hidden Depths and Howling Peaks dlc.
 
 The command: `get ancient The Swarm -nu -dlc Hidden Depths -nei`
+
 Will show an ancient report for `The Swarm` while excluding unique and event items as well as only including items from base game and the Hidden Depths dlc in the reccomendation algorithm. 
