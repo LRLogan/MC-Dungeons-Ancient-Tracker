@@ -59,7 +59,8 @@ namespace DungeonsAncientTracker
                                 ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                                 : null,
                                 flags.ContainsKey("-nu"),
-                                flags.ContainsKey("-nei")); 
+                                flags.ContainsKey("-nei"),
+                                flags.ContainsKey("-nbi")); 
                             break;
 
                         default:
@@ -284,7 +285,7 @@ namespace DungeonsAncientTracker
             }
         }
 
-        private static void ListItems(SqliteConnection connection, List<string>? allowedDLCs, bool excludeUnique, bool excludeEItems)
+        private static void ListItems(SqliteConnection connection, List<string>? allowedDLCs, bool excludeUnique, bool excludeEItems, bool excludeBItems)
         {
             string sql =
                 "SELECT itemName, itemType, isUnique, dlc, isEvent " +
@@ -299,9 +300,15 @@ namespace DungeonsAncientTracker
                 // Excluding uniques
                 if (reader["isUnique"].ToString() == "1" && excludeUnique)
                     continue;
+
                 // Excluding event items
                 if (reader["isEvent"].ToString() == "1" && excludeEItems)
                     continue;
+
+                // Excluding event items
+                if (reader["isUnique"].ToString() == "0" && excludeBItems)
+                    continue;
+
                 string? dlc = reader["dlc"] == DBNull.Value ? null : reader["dlc"].ToString();
                 
                 if (!CheckDlc(dlc, allowedDLCs))
