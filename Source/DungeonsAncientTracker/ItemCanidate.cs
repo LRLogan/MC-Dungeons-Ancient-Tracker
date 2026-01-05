@@ -14,17 +14,18 @@ namespace DungeonsAncientTracker
         public string name;
         public string type;
         public string? dlc;
-        public bool isUnique;
+        public bool isUnique, isEvent;
         public float score;
 
         public Dictionary<string, int> runeCoverage;
 
-        public ItemCanidate(string name, string type, string? dlc, bool isUnique)
+        public ItemCanidate(string name, string type, string? dlc, bool isUnique, bool isEvent)
         {
             this.name = name;
             this.type = type;
             this.dlc = dlc;
             this.isUnique = isUnique;
+            this.isEvent = isEvent;
             runeCoverage = new Dictionary<string, int>();
         }
 

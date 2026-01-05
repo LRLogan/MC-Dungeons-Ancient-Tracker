@@ -89,9 +89,8 @@ namespace DungeonsAncientTracker
                                 flags.ContainsKey("-dlc")
                                 ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                                 : null,
-                                flags.ContainsKey("-nu")
-                                ? true
-                                : false
+                                flags.ContainsKey("-nu"),
+                                flags.ContainsKey("-nei")
                                 );
                                 break;
 
@@ -407,7 +406,7 @@ namespace DungeonsAncientTracker
             
         }
 
-        private static void GetAncientReport(SqliteConnection connection, string ancient, List<string>? allowedDLCs, bool excludeUnique)
+        private static void GetAncientReport(SqliteConnection connection, string ancient, List<string>? allowedDLCs, bool excludeUnique, bool excludeEItems)
         {
             // Testing to see if the ancient name is valid 
             bool exists;
@@ -530,7 +529,7 @@ namespace DungeonsAncientTracker
             // --- Third query ---
             sql =
                 "SELECT i.itemName, i.itemType, i.isUnique, " +
-                "i.dlc, ir.runeName, ir.runeQuantity " +
+                "i.dlc, ir.runeName, ir.runeQuantity, i.isEvent " +
                 "FROM ItemRune ir " +
                 "JOIN Items i USING (itemName) " +
                 "WHERE ir.runeName IN ( " +
@@ -558,11 +557,12 @@ namespace DungeonsAncientTracker
                     string? dlc = reader.IsDBNull(3) ? null : reader.GetString(3);
                     string runeName = reader.GetString(4);
                     int runeQty = reader.GetInt32(5);
+                    bool isEvent = reader.GetBoolean(6);
 
                     // Checking for item existance 
                     if (!candidatesByName.TryGetValue(itemName, out var candidate))
                     {
-                        candidate = new ItemCanidate(itemName, itemType, dlc, isUnique);
+                        candidate = new ItemCanidate(itemName, itemType, dlc, isUnique, isEvent);
 
                         candidatesByName[itemName] = candidate;
                     }
@@ -582,7 +582,7 @@ namespace DungeonsAncientTracker
                 rawCandidates = candidatesByName.Values.ToList(); 
             }
 
-            List<ItemCanidate> finalItems = RunFindOptimalItemsAlgo(rawCandidates, runeRows, allowedDLCs, excludeUnique);
+            List<ItemCanidate> finalItems = RunFindOptimalItemsAlgo(rawCandidates, runeRows, allowedDLCs, excludeUnique, excludeEItems);
 
             Console.WriteLine("Reccommended items to use for runes: ");
             foreach(ItemCanidate item in finalItems)
@@ -774,7 +774,7 @@ namespace DungeonsAncientTracker
 
         #endregion
 
-        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string>? allowedDLCs, bool excludeUnique)
+        private static List<ItemCanidate> RunFindOptimalItemsAlgo(List<ItemCanidate> canidateSet, Dictionary<string, int> remainingRunes, List<string>? allowedDLCs, bool excludeUnique, bool excludeEItems)
         {
             string[] typeOrder = { "Melee", "Ranged", "Armor", "Artifact" };
             Dictionary<string, List<ItemCanidate>> itemsByType = new();
@@ -789,6 +789,8 @@ namespace DungeonsAncientTracker
                 if (!CheckDlc(item.dlc, allowedDLCs))
                     continue;
                 if (excludeUnique && item.isUnique)
+                    continue;
+                if (excludeEItems && item.isEvent)
                     continue;
                 if (!CheckRunes(item.runeCoverage, remainingRunes))
                     continue;

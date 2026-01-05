@@ -96,7 +96,7 @@ INSERT INTO Items (itemName, itemType, isUnique, dlc, isEvent) VALUES
 ('The Last Laugh', 'Melee', 1, NULL, 0),
 ('The Starless Night', 'Melee', 1, 'Echoing Void', 0),
 ('Truthseeker', 'Melee', 1, NULL, 0),
-('Venom Glave', 'Melee', 1, NULL, 0),
+('Venom Glaive', 'Melee', 1, NULL, 0),
 ('Vine Whip', 'Melee', 1, 'Jungle Awakens', 0),
 ('Void Touched Blades', 'Melee', 0, 'Echoing Void', 0),
 ('Whip', 'Melee', 0, 'Jungle Awakens', 0),
@@ -125,7 +125,7 @@ INSERT INTO Items (itemName, itemType, isUnique, dlc, isEvent) VALUES
 ('Skull Scythe', 'Melee', 1, NULL, 1),
 ('Crackling Broom', 'Melee', 1, NULL, 1),
 ('Bonehead Hammer', 'Melee', 1, NULL, 1),
-('Spine-Chill Spear', 'Melee', 1, NULL, 1),
+('Spine Chill Spear', 'Melee', 1, NULL, 1),
 
 -- Ranged Weapons
 ('Ancient Bow', 'Ranged', 1, NULL, 0),
@@ -1377,8 +1377,8 @@ INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Truthseeker', 'A', 1),
 ('Truthseeker', 'T', 1),
 
-('Venom Glave', 'Arch', 1),
-('Venom Glave', 'Ring', 1),
+('Venom Glaive', 'Arch', 1),
+('Venom Glaive', 'Ring', 1),
 
 ('Vine Whip', 'T', 1),
 ('Vine Whip', 'Ring', 1),
@@ -1459,7 +1459,7 @@ INSERT INTO ItemRune (itemName, runeName, runeQuantity) VALUES
 ('Bonehead Hammer', 'Arch', 1),
 ('Bonehead Hammer', 'Anchor', 1),
 
-('Spine-Chill Spear', 'Ring', 1),
+('Spine Chill Spear', 'Ring', 1),
 
 -- Ranged Weapons
 ('Ancient Bow', 'L', 1),
