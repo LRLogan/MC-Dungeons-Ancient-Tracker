@@ -7,6 +7,7 @@ Ancient Tracker is a command-line–driven utility designed to query and analyze
 Built in C# and SQLite
 
 
+
 # Installation and Usage
 ### Installation
 - Navigate to the Releases section of this GitHub page
@@ -38,6 +39,8 @@ Or type:
 
 To close the program
 
+
+
 # Conventions
 
 To ensure consistent parsing and predictable behavior, the application follows several strict conventions:
@@ -64,6 +67,7 @@ Case Sensitivity
 As a rule of thumb all commands are case sensitive
 
 
+
 # Command Syntax
 
 Commands are token-based and parsed left to right
@@ -81,6 +85,7 @@ Should be entered as:
 `get map Iron Sword`
 
 
+
 # Error Feedback
 
 Invalid commands provide precise feedback
@@ -96,6 +101,7 @@ Output will indicate that:
 `list` was valid
 
 `usbdgjrgbj` was not a recognized subcommand
+
 
 
 # Rune Naming Notes
@@ -139,6 +145,7 @@ The following commands are currently implemented and available:
 
 
 Each command outputs all known entries of the requested type.
+
 
 
 # Command Flag Reference
