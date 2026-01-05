@@ -5,10 +5,23 @@ Repo for my MC-Dungeons-Ancient-Tracker personal project
 Ancient Tracker is a command-line–driven utility designed to query and analyze game data related to Ancients, Runes, Items, and Maps. The tool allows users to explore available content, retrieve item–map relationships, and generate recommendations based on rune requirements and user-defined constraints for preping for Ancient Hunts.
 
 Built in C# and SQLite
+<br>
+<br></br>
 
-
+# Table of Contents
+- [MC-Dungeons-Ancient-Tracker CLI](#mc-dungeons-ancient-tracker-cli)
+- [Installation and Usage](#installation-and-usage)
+- [Conventions](#conventions)
+- [Command Syntax](#command-syntax)
+- [Error Feedback](#error-feedback)
+- [Rune Naming Notes](#rune-naming-notes)
+- [Command Reference](#command-reference)
+- [Command Flag Reference](#command-flag-reference)
+<br>
+<br></br>
 
 # Installation and Usage
+
 ### Installation
 - Navigate to the Releases section of this GitHub page
 - Select the desired release and download the zip folder
@@ -38,13 +51,12 @@ Or type:
 `exit`
 
 To close the program
-
-
+<br>
+<br></br>
 
 # Conventions
 
 To ensure consistent parsing and predictable behavior, the application follows several strict conventions:
-
 
 ## Naming Conventions
 
@@ -65,8 +77,8 @@ Apostrophes (`'`) are not allowed in names or commands
 Case Sensitivity
 
 As a rule of thumb all commands are case sensitive
-
-
+<br>
+<br></br>
 
 # Command Syntax
 
@@ -83,8 +95,8 @@ Example:
 Should be entered as:
 
 `get map Iron Sword`
-
-
+<br>
+<br></br>
 
 # Error Feedback
 
@@ -101,8 +113,8 @@ Output will indicate that:
 `list` was valid
 
 `usbdgjrgbj` was not a recognized subcommand
-
-
+<br>
+<br></br>
 
 # Rune Naming Notes
 
@@ -123,8 +135,8 @@ Rune names have been simplified to be easier to remember and type.
 | **L** | ![L rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/LRune.png) | **Ring** | ![Ring rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/RingRune.png) |
 | **Shield** | ![Shield rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/ShieldRune.png) | **T** | ![T rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TRune.png) |
 | **Totem** | ![Totem rune](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/TotemRune.png) |  |  |
-
-
+<br>
+<br></br>
 
 # Command Reference
 
@@ -145,8 +157,8 @@ The following commands are currently implemented and available:
 
 
 Each command outputs all known entries of the requested type.
-
-
+<br>
+<br></br>
 
 # Command Flag Reference
 
@@ -167,11 +179,15 @@ As long as the command supports the flag you can use as many as you need.
 The command: `list items -nei -nbi -nu` 
 
 Will return nothing because it is excluding all types of items.
+<br>
 
+<br></br>
 The command: `list items -dlc Hidden Depths,Howling Peaks -nbi`
 
 Will only show the unique items in the Hidden Depths and Howling Peaks dlc.
+<br>
 
+<br></br>
 The command: `get ancient The Swarm -nu -dlc Hidden Depths -nei`
 
 Will show an ancient report for `The Swarm` while excluding unique and event items as well as only including items from base game and the Hidden Depths dlc in the reccomendation algorithm. 
