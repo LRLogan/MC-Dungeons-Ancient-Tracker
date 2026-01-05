@@ -1,10 +1,10 @@
 # MC-Dungeons-Ancient-Tracker CLI
 Repo for my MC-Dungeons-Ancient-Tracker personal project 
-- Created by Logan Larrondo
 
 Ancient Tracker is a command-line–driven utility designed to query and analyze game data related to Ancients, Runes, Items, and Maps. The tool allows users to explore available content, retrieve item–map relationships, and generate recommendations based on rune requirements and user-defined constraints for preping for Ancient Hunts.
 
 Built in C# and SQLite
+- Created by Logan Larrondo
 <br>
 <br></br>
 
