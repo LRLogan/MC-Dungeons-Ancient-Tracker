@@ -58,9 +58,8 @@ namespace DungeonsAncientTracker
                                 flags.ContainsKey("-dlc")
                                 ? flags["-dlc"].Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
                                 : null,
-                                flags.ContainsKey("-nu")
-                                ? true
-                                : false); 
+                                flags.ContainsKey("-nu"),
+                                flags.ContainsKey("-nei")); 
                             break;
 
                         default:
@@ -141,6 +140,7 @@ namespace DungeonsAncientTracker
             Console.WriteLine("get item {Item Name}");
             Console.WriteLine("\nOther resources:");
             Console.WriteLine("Type 'exit' to exit program");
+            Console.WriteLine("Visit the GitHub page for more detailed documentation");
         }
 
         /// <summary>
@@ -285,30 +285,30 @@ namespace DungeonsAncientTracker
             }
         }
 
-        private static void ListItems(SqliteConnection connection, List<string>? allowedDLCs, bool excludeUnique)
+        private static void ListItems(SqliteConnection connection, List<string>? allowedDLCs, bool excludeUnique, bool excludeEItems)
         {
             string sql =
-                "SELECT itemName, itemType, isUnique, dlc " +
+                "SELECT itemName, itemType, isUnique, dlc, isEvent " +
                 "FROM Items " +
                 "ORDER BY itemName ASC;";
 
             using var cmd = connection.CreateCommand();
             cmd.CommandText = sql;
-
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 // Excluding uniques
                 if (reader["isUnique"].ToString() == "1" && excludeUnique)
                     continue;
-                 
+                // Excluding event items
+                if (reader["isEvent"].ToString() == "1" && excludeEItems)
+                    continue;
                 string? dlc = reader["dlc"] == DBNull.Value ? null : reader["dlc"].ToString();
                 
                 if (!CheckDlc(dlc, allowedDLCs))
                     continue;
 
                 string isItemUnique = reader.GetBoolean(2) ? "Y" : "N";
-
                 // Special formatting for if DLC does not exist 
                 if (reader["dlc"] == DBNull.Value)
                 {

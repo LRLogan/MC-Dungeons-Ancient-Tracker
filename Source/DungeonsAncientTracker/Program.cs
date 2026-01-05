@@ -25,7 +25,6 @@ namespace DungeonsAncientTracker
             {
                 DatabaseManager.InitializeDatabase(connection);
             }
-
             // Actual user input loop
             RunUserLoop(connection);
         }

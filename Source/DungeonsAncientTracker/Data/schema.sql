@@ -12,7 +12,7 @@ CREATE TABLE Items (
     itemType TEXT NOT NULL,
     isUnique INTEGER NOT NULL DEFAULT 0, -- Bool for isUnique 0 false, 1 true
     dlc TEXT,
-    isEvent INTEGER DEFAULT 0   -- Bool to mark if it is from event 0 false, 1 true
+    isEvent INTEGER NOT NULL DEFAULT 0   -- Bool to mark if it is from event 0 false, 1 true
 );
 
 DROP TABLE IF EXISTS Rune;
