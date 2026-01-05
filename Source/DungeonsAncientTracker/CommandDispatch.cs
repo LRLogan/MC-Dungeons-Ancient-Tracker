@@ -48,7 +48,10 @@ namespace DungeonsAncientTracker
                             break;
 
                         case "ancients":
-                            ListAncients(connection);
+                            if (flags != null && flags.Count() >= 0) flags.Clear();
+                            flags = GetFlagsFromParts(inputParts);
+                            ListAncients(connection,
+                                flags.ContainsKey("-sd"));
                             break;
 
                         case "items":
@@ -266,22 +269,64 @@ namespace DungeonsAncientTracker
             }
         }
 
-        private static void ListAncients(SqliteConnection connection)
+        private static void ListAncients(SqliteConnection connection, bool showData)
         {
-            string sql =
+            string sql = null;
+            Dictionary<string, List<string?>> loot = new Dictionary<string, List<string?>>();
+            if (showData)
+            {
+                sql =
+                "SELECT a.ancientName, " +
+                "al.itemName AS lootItem " +
+                "FROM Ancient a " +
+                "LEFT JOIN AncientLoot al USING (ancientName) " +
+                "ORDER BY al.itemName ASC;";
+
+                using (var cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = sql;
+
+                    using var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if(!loot.ContainsKey(reader["ancientName"].ToString()))
+                        {
+                            loot[reader["ancientName"].ToString()] = new List<string?>();
+                        }
+                        loot[reader["ancientName"].ToString()].Add(reader["lootItem"].ToString());
+                    }
+                }
+            }
+
+            sql =
                 "SELECT ancientName, mobType " +
                 "FROM Ancient " +
                 "ORDER BY ancientName ASC;";
 
-            using var cmd = connection.CreateCommand();
-            cmd.CommandText = sql;
+            using (var cmd = connection.CreateCommand())
+            { 
+                cmd.CommandText = sql;
 
-            using var reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                Console.WriteLine(
-                        $"ANCIENT: {reader["ancientName"], formatSpaceSize}-> MOB: {reader["mobType"]}"
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine(
+                            $"ANCIENT: {reader["ancientName"],formatSpaceSize}-> MOB: {reader["mobType"]}"
                     );
+
+                    // If -sd
+                    if(showData)
+                    {
+                        Console.WriteLine("\nLoot droped:");
+                        foreach (var item in loot[reader["ancientName"].ToString()])
+                        {
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine();
+                        Console.WriteLine();
+                    }
+                    
+                }
             }
         }
 
