@@ -312,7 +312,7 @@ namespace DungeonsAncientTracker
                 // Special formatting for if DLC does not exist 
                 if (reader["dlc"] == DBNull.Value)
                 {
-                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize}" +
+                    Console.WriteLine($"ITEM: {reader["itemName"],formatSpaceSize} " +
                     $"-> TYPE: {reader["itemType"],formatSpaceSizeSmall} " +
                     $"Is Unique: {isItemUnique}" 
                     );
