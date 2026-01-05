@@ -147,7 +147,7 @@ The following commands are currently implemented and available:
 | ----------------------------- | ----------------------------------------------------------------------------------- |-----------------|
 | `help`                        | Displays a list of available commands along with basic usage guidance.              | *(none)*        |
 | `list maps`                   | Lists all maps currently stored in the database.                                    | `-dlc`          | 
-| `list ancients`               | Lists all known Ancients.                                                           | *(none)*        |
+| `list ancients`               | Lists all known Ancients. Use the `-sd` flag to show loot dropped.                  | `-sd`           |
 | `list items`                  | Lists all items that can be queried or used in recommendations.                     | `-dlc`, `-nu`, `-nei`, `-nbi`   |
 | `list runes`                  | Lists all runes and their simplified names.                                         | *(none)*        |   
 | `get map {Item Name}`         | Returns the map(s) associated with the specified item. Item name is case sensitive. | `-dlc`, `-nu`   |
@@ -168,6 +168,7 @@ Flags are optional modifiers that alter how certain commands behave. Flags must 
 | ------ | -------------------- | ---------------------------------------------------------------------------------------------------- |
 | `-dlc` | `{dlc name \| none}` | Filters results to items from specific DLCs. Use `none` to include only base-game (non-DLC) content. For multple values seperate them with a comma `,` and no space. |
 | `-nu`  | *(none)*             | Excludes unique items from results (`No Unique`). Useful for generalized or repeatable solutions.    |
+| `-sd`  | *(none)*             | Showes additional data for the command that may be useful. The data type may differ between commands.|
 | `-nei` | *(none)*             | Excludes event items from results (`No Event Items`). Useful for generalized or repeatable solutions.|
 | `-nbi` | *(none)*             | Excludes unique items from results (`No Base Items`). Useful for generalized or repeatable solutions.|
 
