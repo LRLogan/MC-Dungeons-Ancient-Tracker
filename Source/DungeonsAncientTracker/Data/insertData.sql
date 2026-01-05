@@ -389,6 +389,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Creeper Woods', 'Torment Quiver'),
 
 ('Creepy Crypt', 'Sword'),
+('Creepy Crypt', 'Splendid Robe'),
+('Creepy Crypt', 'Frost Bite'),
 ('Creepy Crypt', 'Archers Armor'),
 ('Creepy Crypt', 'Nocturnal Bow'),
 ('Creepy Crypt', 'Bow of Lost Souls'),
@@ -432,6 +434,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Pumpkin Pastures', 'Flaming Quiver'),
 
 ('Arch Haven', 'Sickles'),
+('Arch Haven', 'Heros Armor'),
 ('Arch Haven', 'Voidcaller'),
 ('Arch Haven', 'Feral Soul Crossbow'),
 ('Arch Haven', 'Red Snake'),
@@ -483,6 +486,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Swamp', 'Totem of Regeneration'),
 
 ('Soggy Cave', 'Gauntlets'),
+('Soggy Cave', 'Frost Bite'),
 ('Soggy Cave', 'Verdant Robe'),
 ('Soggy Cave', 'Ember Robe'),
 ('Soggy Cave', 'Masters Bow'),
@@ -511,6 +515,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Soggy Cave', 'Buzzy Nest'),
 
 ('Redstone Mines', 'Daggers'),
+('Redstone Mines', 'Splendid Robe'),
+('Redstone Mines', 'Frost Bite'),
 ('Redstone Mines', 'Fox Armor'),
 ('Redstone Mines', 'Black Wolf Armor'),
 ('Redstone Mines', 'Spider Armor'),
@@ -537,6 +543,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Redstone Mines', 'Totem of Casting'),
 
 ('Fiery Forge', 'Cutlass'),
+('Fiery Forge', 'Titans Shroud'),
+('Fiery Forge', 'Full Metal Armor'),
 ('Fiery Forge', 'Highland Armor'),
 ('Fiery Forge', 'Stalwart Armor'),
 ('Fiery Forge', 'Imploding Crossbow'),
@@ -585,6 +593,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Cacti Canyon', 'Shortbow'),
 ('Cacti Canyon', 'Azure Seeker'),
 ('Cacti Canyon', 'Longbow'),
+('Cacti Canyon', 'Heros Armor'),
 ('Cacti Canyon', 'Crossbow'),
 ('Cacti Canyon', 'Heavy Crossbow'),
 ('Cacti Canyon', 'Champions Armor'),
@@ -667,6 +676,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Highblock Halls', 'Love Medallion'),
 
 ('Underhalls', 'Spear'),
+('Underhalls', 'Titans Shroud'),
 ('Underhalls', 'Souldancer Robe'),
 ('Underhalls', 'Imploding Crossbow'),
 ('Underhalls', 'Firebolt Thrower'),
@@ -904,6 +914,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Treetop Tangle', 'Totem of Casting'),
 
 ('Frosted Fjord', 'Pickaxe'),
+('Frosted Fjord', 'Splendid Robe'),
+('Frosted Fjord', 'Frost Bite'),
 ('Frosted Fjord', 'Winters Touch'),
 ('Frosted Fjord', 'Purple Storm'),
 ('Frosted Fjord', 'Mechanical Shortbow'),
@@ -923,7 +935,9 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Frosted Fjord', 'Lightning Rod'),
 
 ('Lone Fortress', 'Soul Knife'),
+('Lone Fortress', 'Full Metal Armor'),
 ('Lone Fortress', 'Truthseeker'),
+('Lone Fortress', 'Heros Armor'),
 ('Lone Fortress', 'Souldancer Robe'),
 ('Lone Fortress', 'Frost Armor'),
 ('Lone Fortress', 'Lightning Harp Crossbow'),
@@ -945,6 +959,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Lone Fortress', 'Totem of Shielding'),
 
 ('Lost Settlement', 'Cutlass'),
+('Lost Settlement', 'Titans Shroud'),
 ('Lost Settlement', 'Fox Armor'),
 ('Lost Settlement', 'Black Wolf Armor'),
 ('Lost Settlement', 'Cave Crawler'),
@@ -1007,6 +1022,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gauntlet of Gales', 'Updraft Tome'),
 
 ('Gale Sanctum', 'Claymore'),
+('Gale Sanctum', 'Full Metal Armor'),
+('Gale Sanctum', 'Frost Bite'),
 ('Gale Sanctum', 'Opulent Armor'),
 ('Gale Sanctum', 'Burst Gale Bow'),
 ('Gale Sanctum', 'Purple Storm'),
@@ -1033,6 +1050,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Gale Sanctum', 'Satchel of Elements'),
 
 ('Colossal Rampart', 'Axe'),
+('Colossal Rampart', 'Splendid Robe'),
 ('Colossal Rampart', 'Gilded Glory'),
 ('Colossal Rampart', 'Opulent Armor'),
 ('Colossal Rampart', 'Rugged Climbing Gear'),
@@ -1084,6 +1102,8 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Coral Rise', 'Satchel of Elixirs'),
 
 ('Abyssal Monument', 'Anchor'),
+('Abyssal Monument', 'Splendid Robe'),
+('Abyssal Monument', 'Glow Squid Armor'),
 ('Abyssal Monument', 'Nautical Crossbow'),
 ('Abyssal Monument', 'Bubble Burster'),
 ('Abyssal Monument', 'Stormlander'),
@@ -1102,6 +1122,7 @@ INSERT INTO MapItems (mapName, itemName) VALUES
 ('Abyssal Monument', 'Satchel of Snacks'),
 
 ('Radiant Ravine', 'Anchor'),
+('Radiant Ravine', 'Glow Squid Armor'),
 ('Radiant Ravine', 'Nimble Turtle Armor'),
 ('Radiant Ravine', 'Spider Armor'),
 ('Radiant Ravine', 'Nautical Crossbow'),
