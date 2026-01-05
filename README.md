@@ -6,11 +6,13 @@ Ancient Tracker is a command-line–driven utility designed to query and analyze
 
 Built in C# and SQLite
 
+
 # Installation and Usage
 ### Installation
 - Navigate to the Releases section of this GitHub page
 - Select the desired release and download the zip folder
   - ( Recommended that you use the most recent release )
+
 
 ### Running the Application
 - Extract (unzip) the zip folder to a location of your choosing
@@ -20,6 +22,7 @@ Built in C# and SQLite
 If running the application for the first time it may take a moment to greate the database
 
 Once launched, the program will enter an interactive command prompt.
+
 
 ### Getting Help
 
@@ -38,6 +41,7 @@ To close the program
 # Conventions
 
 To ensure consistent parsing and predictable behavior, the application follows several strict conventions:
+
 
 ## Naming Conventions
 
@@ -59,6 +63,7 @@ Case Sensitivity
 
 As a rule of thumb all commands are case sensitive
 
+
 # Command Syntax
 
 Commands are token-based and parsed left to right
@@ -74,6 +79,7 @@ Example:
 Should be entered as:
 
 `get map Iron Sword`
+
 
 # Error Feedback
 
@@ -91,9 +97,11 @@ Output will indicate that:
 
 `usbdgjrgbj` was not a recognized subcommand
 
+
 # Rune Naming Notes
 
 Rune names have been simplified to be easier to remember and type.
+
 
 ### Original rune names: 
 
@@ -132,6 +140,7 @@ The following commands are currently implemented and available:
 
 Each command outputs all known entries of the requested type.
 
+
 # Command Flag Reference
 
 Flags are optional modifiers that alter how certain commands behave. Flags must begin with - and apply only to commands that support them.
@@ -144,9 +153,11 @@ Flags are optional modifiers that alter how certain commands behave. Flags must 
 | `-nbi` | *(none)*             | Excludes unique items from results (`No Base Items`). Useful for generalized or repeatable solutions.|
 
 Examples of using flags:
+
 As long as the command supports the flag you can use as many as you need.
 
 The command: `list items -nei -nbi -nu` 
+
 Will return nothing because it is excluding all types of items.
 
 The command: `list items -dlc Hidden Depths,Howling Peaks -nbi`
