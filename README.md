@@ -126,7 +126,6 @@ Rune names have been simplified to be easier to remember and type.
 ![alt text](https://github.com/LRLogan/MC-Dungeons-Ancient-Tracker/blob/main/Images/AncientRuneActualNames.png "Actual rune names")
 
 ### My rune names:
-### My rune names
 
 | Rune | Image | Rune | Image |
 |-----:|:------|-----:|:------|
