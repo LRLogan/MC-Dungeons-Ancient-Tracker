@@ -1,0 +1,1 @@
+This folder was used for temp storage of builds. They can now be accessed through the releases. 
