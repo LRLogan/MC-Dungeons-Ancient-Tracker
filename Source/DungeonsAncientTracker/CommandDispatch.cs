@@ -573,7 +573,7 @@ namespace DungeonsAncientTracker
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall}, x{reader["occurrenceCount"]}");
+                    Console.WriteLine($"{reader["mapName"],formatSpaceSizeSmall} x{reader["occurrenceCount"]}");
                 }
                 Console.WriteLine();
             }
@@ -820,6 +820,45 @@ namespace DungeonsAncientTracker
                             $"MAP: {reader["mapName"],formatSpaceSize}-> DLC: {reader["dlc"]}"
                         );
                     }
+                }
+                Console.WriteLine();
+            }
+
+            // -- Query 3 --
+            // Showing the ancient that drops the item if any 
+            sql =
+               "SELECT ancientName, itemName " +
+               "FROM AncientLoot " +
+               "WHERE itemName = @item " +
+               "ORDER BY ancientName ASC;";
+
+            using (var cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@item", item);
+
+                using var reader = cmd.ExecuteReader();
+                Console.WriteLine($"Ancient that can drop this item:");
+
+                // Each item should only be dropped by 1 ancient but this format will support 1 or more ancients
+                List<string?> ancients = new();
+                while (reader.Read())
+                {
+                    ancients.Add(reader["ancientName"].ToString());
+                }
+
+                // Checking for null value
+                if (ancients.Count <= 0)
+                {
+                    Console.WriteLine(
+                        $"ANCIENT: None"
+                    );
+                }
+                else
+                {
+                    ancients.ForEach(ancient => Console.WriteLine(
+                        $"Ancient: {ancient}"
+                    ));
                 }
             }
         }
