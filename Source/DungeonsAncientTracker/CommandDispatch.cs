@@ -19,6 +19,11 @@ namespace DungeonsAncientTracker
         private const int formatSpaceSizeSmall = -15;
         private const int formatSpaceSizeTiny = -5;
 
+        /// <summary>
+        /// Core dispatch for cammand input
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="connection"></param>
         public static void Dispatch(string input, SqliteConnection connection)
         {
             string[] inputParts = input.Split(
@@ -105,6 +110,10 @@ namespace DungeonsAncientTracker
                         case "item":
                             string fullItemNamae = GetRemainingArgument(inputParts, 2);
                             GetItem(connection, fullItemNamae);
+                            break;
+
+                        case "a life":
+                            Console.WriteLine("I would reccomend starting by touching some grass.");
                             break;
 
                         default:
@@ -897,15 +906,19 @@ namespace DungeonsAncientTracker
 
             }
 
+            // Make a copy of the rune list in an array for iteration when used in later checks
+
+
             // Main section of the algorithm
             // Iterating through each item type to get the best one for each
             foreach (string type in typeOrder)
             {
                 if (!itemsByType.ContainsKey(type))
                     continue;
-                bestItem = null;
+                bestItem = null!;
                 bestCost = float.MinValue;
 
+                // Calculate heuristic -> assign best item from value -> update lists
                 foreach(ItemCanidate item in itemsByType[type])
                 {
                     curItemCost = CalculateHeuristic(item, remainingRunes);
